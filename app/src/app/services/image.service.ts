@@ -16,4 +16,8 @@ export class ImageService {
   getPetImages(sharedLink: string) {
     return this.http.post(this.URL + '/pet',{sharedLink});
   }
+
+  deleteContent(){
+    return this.http.get(this.URL + '/delete');
+  }
 }

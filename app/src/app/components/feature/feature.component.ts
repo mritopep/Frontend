@@ -33,4 +33,10 @@ export class FeatureComponent implements OnInit {
     });
   }
 
+  Delete(){
+    this.imageService.deleteContent().subscribe((data) =>{
+      console.log(data);
+    });
+  }
+
 }
