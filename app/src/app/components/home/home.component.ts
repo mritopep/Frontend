@@ -9,11 +9,11 @@ import { WebsocketService } from 'src/app/services/websocket.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  messages: Observable<any[]>;
-  currentMessage: any;
-  messageSub: Subscription;
+  // messages: Observable<any[]>;
+  // currentMessage: any;
+  // messageSub: Subscription;
 
-  constructor(private webSocket: WebsocketService, private cloudStorage: CloudStorageService) { }
+  constructor() { }
 
   ngOnInit(): void {
     // this.messageSub = this.webSocket.listen("messages").subscribe((data) => {
@@ -30,6 +30,6 @@ export class HomeComponent implements OnInit {
   newMessage() {
     // this.webSocket.emit("messages", "hello NY");
     // this.cloudStorage.getFileList("");
-    this.cloudStorage.downloadFile("https://www.dropbox.com/s/u82jeoc2571yp3m/pet.zip?dl=0");
+    // this.cloudStorage.downloadFile("https://www.dropbox.com/s/u82jeoc2571yp3m/pet.zip?dl=0");
   }
 }
