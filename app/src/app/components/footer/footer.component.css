@@ -1,0 +1,58 @@
+
+.bluebox{
+    background-color: #4C5268 ;
+    overflow-wrap: break-word;
+    word-break:break-all;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bluebox .bi-check-circle-fill
+   {
+       color: #60D490;
+       width: 20px;
+       height: 20px;
+   }
+
+.greenbox{
+    background-color: #60D490; 
+   
+}
+
+.greenbox a{
+    color: white;
+    font-size: 1.5rem;
+}
+.bluebox a{
+    color: white;
+    font-size: 1rem;
+}
+
+
+a{
+    text-decoration: none;
+    font-weight: 400;
+    letter-spacing: 1.5px;;
+    
+}
+.download{
+    height: 0.7em;
+}
+.next{
+    height: 0.8em;
+}
+ 
+.bfr_upload{
+    text-align:left;
+}
+.step{
+    text-align: center;
+}
+.bfr_upload>p{
+    font-size: 14px;
+}
+.bfr_upload>.lead>span{
+    font-weight: 500;
+}

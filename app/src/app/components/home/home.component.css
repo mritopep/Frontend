@@ -1,0 +1,24 @@
+.container-fluid {
+    display: flex;
+    flex-direction: column;
+}
+
+.bg-light{
+    color: #F0F3FC;
+    border-radius: 1rem;
+    overflow-wrap: break-word;
+    word-break:break-all;
+    width: 75%;
+    height: 100%;
+    margin: 0 auto;
+
+} 
+
+.bgimg{
+    height: 67vh;
+}
+
+footer{
+    height: 12vh;
+}
+
