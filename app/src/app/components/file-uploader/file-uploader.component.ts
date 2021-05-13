@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { CloudStorageService } from 'src/app/services/cloudstorage.service';
 
 @Component({
   selector: 'app-file-uploader',
@@ -8,7 +9,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class FileUploaderComponent implements OnInit {
   @Output() filesUploaded = new EventEmitter<any>();
 
-  constructor() { }
+  constructor(private cloudStorage: CloudStorageService) { }
 
   ngOnInit(): void {
   }
@@ -65,6 +66,7 @@ export class FileUploaderComponent implements OnInit {
     for (const item of files) {
       item.progress = 0;
       this.files.push(item);
+      this.cloudStorage.uploadFile("mri_mod.zip",item);
       this.filesUploaded.emit(this.files);
     }
     this.uploadFilesSimulator(0);

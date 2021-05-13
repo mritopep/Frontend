@@ -13,8 +13,10 @@ export class AboutComponent implements OnInit {
   messages: Observable<any[]>;
   currentMessage: any;
   messageSub: Subscription;
+  fileURL: string;
 
-  constructor(private webSocket: WebsocketService, private cloudStorage: CloudStorageService) { }
+  constructor(private webSocket: WebsocketService, private cloudStorage: CloudStorageService) {  
+  }
 
   ngOnInit(): void {
     this.messageSub = this.webSocket.listen("Messages").subscribe((data) => {
@@ -42,8 +44,9 @@ export class AboutComponent implements OnInit {
   }
 
   getFile(){
-    this.cloudStorage.getFileList("");
-    this.cloudStorage.downloadFile("https://www.dropbox.com/s/pwzknjvrvf3hb3w/pet_img.zip?dl=0");
+    // this.cloudStorage.getFileList("");
+    // this.cloudStorage.downloadFile("https://www.dropbox.com/s/pwzknjvrvf3hb3w/pet_img.zip?dl=0");
+    this.cloudStorage.downloadZipFile("https://www.dropbox.com/s/u82jeoc2571yp3m/pet.zip?dl=0");
   }
 
 }
