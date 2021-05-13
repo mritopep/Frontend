@@ -43,7 +43,7 @@ export class AboutComponent implements OnInit {
 
   getFile(){
     this.cloudStorage.getFileList("");
-    this.cloudStorage.downloadFile("https://www.dropbox.com/s/u82jeoc2571yp3m/pet.zip?dl=0");
+    this.cloudStorage.downloadFile("https://www.dropbox.com/s/pwzknjvrvf3hb3w/pet_img.zip?dl=0");
   }
 
 }

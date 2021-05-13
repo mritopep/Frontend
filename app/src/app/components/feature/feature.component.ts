@@ -16,7 +16,7 @@ export class FeatureComponent implements OnInit {
   }
 
   getMri(){
-    this.imageService.getMriImages().subscribe((data) => {
+    this.imageService.getMriImages("https://www.dropbox.com/s/qljrnbm9n1ji0h9/mri_img.zip?dl=0").subscribe((data) => {
       if(data.toString() === "MRI_RECIVED"){
         console.log(data);
         this.mriImage = true;
@@ -25,7 +25,7 @@ export class FeatureComponent implements OnInit {
   }
 
   getPet(){
-    this.imageService.getPetImages().subscribe((data) => {
+    this.imageService.getPetImages("https://www.dropbox.com/s/pwzknjvrvf3hb3w/pet_img.zip?dl=0").subscribe((data) => {
       if(data.toString() === "PET_RECIVED"){
         console.log(data);
         this.petImage = true;
