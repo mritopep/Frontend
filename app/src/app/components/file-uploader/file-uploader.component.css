@@ -1,13 +1,13 @@
 .container {
   width: 90%;
-  height: 50%;
+  max-height: 40%;
   padding: 1.5rem;
   text-align: center;
   border: 3px dashed #60D490;
   stroke-width: '7';
   position: relative;
   margin: 0 auto;
-  border-radius: 20px;
+  border-radius: 15px;
 
 }
 .container .blue_txt{
@@ -36,13 +36,19 @@
   height: 30%;
   border-radius: 15px;
   background-color: #db202f;
-  padding: 12px 5px;
+  padding: 10px;
   cursor: pointer;
+  
 }
 
 .container > label > svg {
    height: 1.2rem;
    width: 1.3rem;
+}
+
+.container .lead{
+  color: black;
+  font-size: small;
 }
 
 .fileover {
