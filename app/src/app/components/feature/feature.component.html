@@ -1,1 +1,5 @@
-<p>feature works!</p>
+<button class="btn-primary" (click)="getMri()"> MRI images</button>
+<br>
+<button class="btn-primary" (click)="getPet()"> PET images</button>
+<p *ngIf="petImage">PET GOT</p>
+<p *ngIf="mriImage">MRI GOT</p>

@@ -17,6 +17,7 @@ import { ProgressComponent } from './components/progress/progress.component';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { OptionComponent } from './components/option/option.component';
 const config: SocketIoConfig = { url: "" , options: {} };
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ const config: SocketIoConfig = { url: "" , options: {} };
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SocketIoModule.forRoot(config)
+    SocketIoModule.forRoot(config),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -11,6 +11,8 @@
   "author": "Antony J Malakkaran",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.5",
+    "dropbox": "^9.8.0",
     "express": "^4.17.1",
     "ngrok": "^4.0.1"
   }
