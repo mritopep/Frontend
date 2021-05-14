@@ -4,15 +4,15 @@
 		<tbody>
 			<tr>
 				<td>Denoise</td>
-				<td><mat-slide-toggle id="denoise" checked></mat-slide-toggle></td>
+				<td><mat-slide-toggle id="denoise" (change)="setValue($event)" [checked]="process_options.denoise"></mat-slide-toggle></td>
 			</tr>
 			<tr>
 				<td>Skull Strip</td>
-				<td><mat-slide-toggle id="skullstrip" checked></mat-slide-toggle></td>
+				<td><mat-slide-toggle id="skull_strip" (change)="setValue($event)" [checked]="process_options.skull_strip"></mat-slide-toggle></td>
 			</tr>
 			<tr>
 				<td>Bias Correction</td>
-				<td><mat-slide-toggle id="bias" checked></mat-slide-toggle></td>
+				<td><mat-slide-toggle id="bais_correction" (change)="setValue($event)" [checked]="process_options.bais_correction"></mat-slide-toggle></td>
 			</tr>
 		</tbody>
 	</table>

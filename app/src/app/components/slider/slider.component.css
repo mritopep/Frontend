@@ -1,39 +1,17 @@
-.slider{
-    height: 70vh;
+.slider_img {
+  height: 55vh;
 }
-.container{
-    background: #F0F3FC;
-    border-radius: 1rem ;
-    width: 73%;
-    height: 66vh;
-    margin: 0 auto;
-    padding: 0;   
-    position: relative;
 
-}
-.slider_img{
-    height: 55vh;   
-}
 .slider_img img {
-    
-    object-fit:contain;
-    width: 100%;
-    height:100%;
-    padding: 10px;
-    
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
 }
 
-.slider-pos{
-    width: 90%;
-    margin: 0 auto;
-   
-}
-
-
-mat-slider{
-       color: #60D490;
-       width: 100% ;
-
+mat-slider {
+  color: #60d490;
+  width: 100%;
 }
 
 ::ng-deep .mat-accent .mat-slider-thumb {
