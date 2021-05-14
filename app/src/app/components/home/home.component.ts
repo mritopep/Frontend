@@ -93,10 +93,4 @@ export class HomeComponent implements OnInit {
     this.webSocket.emit("Messages", msg);
   }
 
-  newMessage() {
-
-    // this.webSocket.emit("messages", "hello NY");
-    // this.cloudStorage.getFileList("");
-    // this.cloudStorage.downloadFile("https://www.dropbox.com/s/u82jeoc2571yp3m/pet.zip?dl=0");
-  }
 }
