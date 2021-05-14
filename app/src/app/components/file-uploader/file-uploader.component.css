@@ -12,7 +12,7 @@
 }
 .container .blue_txt{
   color: #4C5268;
-  font-weight: 800  ;
+  font-weight: 770  ;
 }
 .container > h3 {
   font-size: 20px;
@@ -36,7 +36,7 @@
   height: 30%;
   border-radius: 15px;
   background-color: #db202f;
-  padding: 10px;
+  padding: 7.5px;
   cursor: pointer;
   
 }
