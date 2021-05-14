@@ -5,15 +5,19 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class ImageService {
-  readonly URL = '/api';
+  readonly URL = 'http://localhost:4100';
 
   constructor(private http: HttpClient) { }
 
-  getMriImages() {
-    return this.http.get(this.URL + '/mri');
+  getMriImages(sharedLink: string) {
+    return this.http.post(this.URL + '/mri',{sharedLink});
   }
 
-  getPetImages() {
-    return this.http.get(this.URL + '/pet');
+  getPetImages(sharedLink: string) {
+    return this.http.post(this.URL + '/pet',{sharedLink});
+  }
+
+  deleteContent(){
+    return this.http.get(this.URL + '/delete');
   }
 }

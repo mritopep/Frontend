@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Dropbox, Error, files, sharing } from 'dropbox';
+import * as JSZip from 'jszip';
 
 @Injectable({
   providedIn: 'root'
@@ -9,21 +10,45 @@ export class CloudStorageService {
   dbx: any;
   files: any;
   downloadedFile: any;
-  images: any
+  fileBlob: Blob;
 
 
   constructor() {
     this.dbx = new Dropbox({ accessToken: this.accessToken });
   }
 
-  uploadFile(fileName: string, fileContent: any) {
-    this.dbx.filesUpload({ path: `/${fileName}`, fileContent })
-      .then((response: any) => {
-        console.log(response);
-      })
-      .catch((uploadErr: Error<files.UploadError>) => {
-        console.log(uploadErr);
+  uploadFile(fileName: string, file: File) {
+    const jszip = new JSZip();
+    this.changeFile(file).then((data: ArrayBuffer) => {
+      jszip.file(file.name, data);
+      jszip.generateAsync({ type: 'blob' }).then((content) => {
+        console.log(content);
+        this.dbx.filesUpload({ path: `/${fileName}`, contents: this.blobToFile(content,fileName) })
+          .then((response: any) => {
+            console.log(response);
+            console.log("File Uploaded");
+          })
+          .catch((uploadErr: Error<files.UploadError>) => {
+            console.log(uploadErr);
+          });
       });
+    });
+  }
+
+  public blobToFile = (theBlob: Blob, fileName:string): File => {
+    var b: any = theBlob;
+    b.lastModifiedDate = new Date();
+    b.name = fileName;
+    return <File>theBlob;
+}
+
+  changeFile(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsArrayBuffer(file);
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = error => reject(error);
+    });
   }
 
   getFileList(path: string) {
@@ -48,5 +73,20 @@ export class CloudStorageService {
         console.log(err);
       });
   }
-  
+
+  downloadZipFile(sharedLink: string) {
+    this.dbx.sharingGetSharedLinkFile({ url: sharedLink })
+      .then((data: any) => {
+        const blob = new Blob([data.result.fileBlob], {
+          type: 'application/zip'
+        });
+        const url = window.URL.createObjectURL(blob);
+        console.log(url);
+        window.open(url);
+      })
+      .catch((err: Error<sharing.GetSharedLinkFileError>) => {
+        console.log(err);
+      });
+  }
+
 }

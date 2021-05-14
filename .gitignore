@@ -2,6 +2,12 @@ node_modules
 
 
 # See http://help.github.com/ignore-files/ for more about ignoring files.
+#image output
+output
+mri_img.zip
+pet_img.zip
+app/src/assets/mri_img
+app/src/assets/pet_img
 
 # compiled output
 app/dist

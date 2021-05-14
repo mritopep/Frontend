@@ -19,6 +19,7 @@ import { OptionComponent } from './components/option/option.component';
 import { MatSlideToggleModule}  from '@angular/material/slide-toggle';
 
 const config: SocketIoConfig = { url: "" , options: {} };
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ const config: SocketIoConfig = { url: "" , options: {} };
     BrowserAnimationsModule,
     SocketIoModule.forRoot(config),
     MatSlideToggleModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
