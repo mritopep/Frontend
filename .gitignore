@@ -8,6 +8,7 @@ mri_img.zip
 pet_img.zip
 app/src/assets/mri_img
 app/src/assets/pet_img
+sample
 
 # compiled output
 app/dist
