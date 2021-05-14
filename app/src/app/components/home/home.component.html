@@ -2,27 +2,27 @@
 
 <div class="container-fluid justify-content-center align-content-center midrow m-0 p-0">
     <div class="row">
-        <div class="col w-50 my-3 py-0 ml-5 ">
-                <div class="bg-light">
+        <div class="col w-50 my-3 py-0 ml-5  " >
+                <div class="container bglight " >
                     <app-file-uploader (filesUploaded)="onFileUploaded($event)"
-                        class="justify-content-center  text-center align-self-center"></app-file-uploader>
+                        class="justify-content-center  text-center align-self-center "></app-file-uploader>
                     <app-option (optionsSelected)="onSelection($event)"
-                        class="justify-content-center  text-center align-self-center"></app-option>
+                        class="justify-content-center  text-center align-self-center "></app-option>
                 </div>
 
-                <div class="bg-dark" hidden>
+                <div class="bglight" hidden  >
                     <app-slider class="justify-content-center  text-center align-self-center"></app-slider>
                 </div>
         </div>
 
         <div class="col w-50 my-3 py-0 ml-5 ">
                 <div>
-                    <div class="container justify-content-center text-center align-self-center px-0">
+                    <div  class="container justify-content-center text-center align-self-center px-0">
                         <img src="../../../assets/img/background-img.svg" alt="bg-img" class="img-fluid bgimg">
                     </div>
                 </div>
 
-                <div class="bg-dark" hidden>
+                <div class="bglight" hidden >
                     <app-slider class="justify-content-center  text-center align-self-center"></app-slider>
                 </div>
         </div>
