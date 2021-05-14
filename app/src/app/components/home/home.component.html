@@ -4,7 +4,7 @@
 <button class="btn-primary btn-lg" hidden (click)="newMessage()"> Click Here </button>
 
 <div class="container-fluid justify-content-center align-content-center midrow m-0 p-0">
-    <div class="row">
+    <div class="row" hidden>
         <div class="col-1"></div>
         <div class="col w-50 my-3 py-0 ml-5 ">
             <div class="row bg-light ">
@@ -21,8 +21,10 @@
             </div>
         </div>
     </div>
+    <!-- slide component -->
+    <app-slider></app-slider>
 </div>
 
-<footer class="fixed-bottom">
+<footer  class="fixed-bottom">
     <app-footer></app-footer>
 </footer>

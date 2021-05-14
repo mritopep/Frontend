@@ -17,6 +17,8 @@ import { ProgressComponent } from './components/progress/progress.component';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { OptionComponent } from './components/option/option.component';
 import { MatSlideToggleModule}  from '@angular/material/slide-toggle';
+import {MatSliderModule} from '@angular/material/slider';
+
 
 const config: SocketIoConfig = { url: "" , options: {} };
 import { HttpClientModule } from '@angular/common/http';
@@ -40,8 +42,10 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     SocketIoModule.forRoot(config),
-    MatSlideToggleModule
-    HttpClientModule
+    MatSlideToggleModule,
+    HttpClientModule,
+    MatSliderModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
