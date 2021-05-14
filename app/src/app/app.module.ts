@@ -18,7 +18,7 @@ import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { OptionComponent } from './components/option/option.component';
 import { MatSlideToggleModule}  from '@angular/material/slide-toggle';
 
-const config: SocketIoConfig = { url: "" , options: {} };
+const config: SocketIoConfig = { url: "http://94c4f083535c.ngrok.io" , options: {} };
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -40,7 +40,7 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserAnimationsModule,
     SocketIoModule.forRoot(config),
-    MatSlideToggleModule
+    MatSlideToggleModule,
     HttpClientModule
   ],
   providers: [],

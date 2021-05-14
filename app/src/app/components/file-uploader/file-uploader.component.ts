@@ -66,7 +66,6 @@ export class FileUploaderComponent implements OnInit {
     for (const item of files) {
       item.progress = 0;
       this.files.push(item);
-      this.cloudStorage.uploadFile("mri_mod.zip",item);
       this.filesUploaded.emit(this.files);
     }
     this.uploadFilesSimulator(0);
