@@ -30,6 +30,14 @@ export class HomeComponent implements OnInit {
 
   constructor(private webSocket: WebsocketService, private cloudStorage: CloudStorageService, private imageService: ImageService) {
     this.options = new Options();
+    this.petUploaded = false;
+    this.mriImage = false;
+    this.petImage = true;
+    this.mriImagePath="../../../assets/mri_img/";
+    this.petImagePath="../../../assets/pet_img/";
+    this.processStatus = {
+
+    };
   }
 
   ngOnInit(): void {
@@ -43,7 +51,6 @@ export class HomeComponent implements OnInit {
       if (msg.id == "MRI_IMG_UPLOAD" && msg.data.uploaded == true) {
         this.mriImageURL = msg.data.url;
         this.mriTotalSliceNumber = msg.data.total_slice_number;
-        this.mriImagePath="../../../assets/mri_img/";
         this.imageService.getMriImages(this.mriImageURL).subscribe((data) => {
           if (data.toString() === "MRI_RECIVED") {
             this.mriImage = true;
@@ -55,7 +62,6 @@ export class HomeComponent implements OnInit {
       if (msg.id == "PET_IMG_UPLOAD" && msg.data.uploaded == true) {
         this.petImageURL = msg.data.url;
         this.petTotalSliceNumber = msg.data.total_slice_number;
-        this.petImagePath="../../../assets/pet_img/";
         this.imageService.getPetImages(this.petImageURL).subscribe((data) => {
           if (data.toString() === "PET_RECIVED") {
             console.log("Pet image upload");

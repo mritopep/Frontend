@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-slider',
@@ -6,10 +6,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./slider.component.css']
 })
 export class SliderComponent implements OnInit {
+  @Input() name: string;
+  @Input() totalSliceNumber: number;
+  @Input() path: string;
+  currentSliceNumber: number;
+  currentImagePath: string;
 
-  constructor() { }
+  
+  constructor() { 
+  }
 
   ngOnInit(): void {
+    this.currentSliceNumber = this.totalSliceNumber/2;
+    // console.log(this.currentSliceNumber);
+    // console.log(this.name);
+    // console.log(this.path);
+    // console.log(this.totalSliceNumber);
+  }
+
+  onSliderChange($event){
+    const img = `${$event.value}.png`;
+    this.currentImagePath = this.path+img;
+    console.log(this.currentImagePath);
   }
 
 }

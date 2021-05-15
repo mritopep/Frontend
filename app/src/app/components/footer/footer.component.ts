@@ -11,7 +11,10 @@ import { WebsocketService } from 'src/app/services/websocket.service';
 })
 export class FooterComponent implements OnInit {
   @Input() file: File;
-  petURL: any;
+  @Input() petURL: any;
+  @Input() petUploaded: any;
+  @Input() processStatus: any;
+  
   constructor(private webSocket: WebsocketService, private cloudStorage: CloudStorageService, private imageService: ImageService) { }
 
   ngOnInit(): void {
@@ -41,6 +44,7 @@ export class FooterComponent implements OnInit {
         this.createMessage("DELETE_STATUS", { delete: true });
         this.delete();
         console.log("User downloaded zip");
+        this.petUploaded = false;
       }
     }).catch((err) => {
       console.log(err);

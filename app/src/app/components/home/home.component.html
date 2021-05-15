@@ -2,7 +2,7 @@
     <app-navbar></app-navbar>
     <div class="row d-flex justify-content-around">
         <div class="col-5">
-            <div class="bg-light">
+            <div class="bg-light" *ngIf="!mriImage">
                 <div class="">
                     <app-file-uploader (filesUploaded)="onFileUploaded($event)"></app-file-uploader>
                 </div>
@@ -10,16 +10,16 @@
                     <app-option (optionsSelected)="onSelection($event)"></app-option>
                 </div>
             </div>
-            <app-slider hidden></app-slider>
+            <app-slider *ngIf="mriImage" [name]="'MRI'" [path]="mriImagePath" [totalSliceNumber]="mriTotalSliceNumber"></app-slider>
         </div>
         <div class="col-5">
-            <div class="img-container">
+            <div class="img-container" *ngIf="!petImage">
                 <img src="../../../assets/img/background-img.svg" alt="bg-img" class="img-fluid bgimg">
             </div>
-            <app-slider hidden></app-slider>
+            <app-slider *ngIf="petImage" [name]="'PET'" [path]="petImagePath" [totalSliceNumber]="petTotalSliceNumber"></app-slider>
         </div>
     </div>
     <footer class="fixed-bottom">
-        <app-footer [file]="file"></app-footer>
+        <app-footer [file]="file" [petUploaded]="petUploaded" [petURL]="petURL" [processStatus]='processStatus'></app-footer>
     </footer>
 </div>

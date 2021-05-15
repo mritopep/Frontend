@@ -1,17 +1,17 @@
 <div class="container-fluid image-card">
     <div class="row">
         <div class="col text-center">
-            <p class="h4 p-0 m-1">MRI</p>
+            <p class="h4 p-0 m-1">{{ name }}</p>
         </div>
     </div>
     <div class="row">
         <div class="col slider_img">
-            <img src="../../../assets/img/background-img.svg" class="">
+            <img src="{{currentImagePath}}" class="">
         </div>
     </div>
     <div class="row d-flex justify-content-center">
         <div class="col-10">
-            <mat-slider thumbLabel step="1" min="0" max="100" aria-label="units">
+            <mat-slider thumbLabel step="1" [min]="0" [max]="totalSliceNumber" aria-label="units" [value]="currentSliceNumber" (change)="onSliderChange($event)">
             </mat-slider>
         </div>  
     </div>
