@@ -1,26 +1,25 @@
-.container {
-  width: 90%;
-  max-height: 40%;
-  padding: 1.5rem;
+.filedrop {
   text-align: center;
-  border: 3px dashed #60D490;
-  stroke-width: '7';
+  border: 3px dashed #60d490;
+  stroke-width: "7";
   position: relative;
-  margin: 0 auto;
+  margin: 30px auto;
   border-radius: 15px;
+  height: 100%;
+}
 
+.filedrop .blue_txt {
+  color: #4c5268;
+  font-weight: 770;
+  margin: 30px 0px 10px 0px;
 }
-.container .blue_txt{
-  color: #4C5268;
-  font-weight: 770  ;
-}
-.container > h3 {
+.filedrop > h3 {
   font-size: 20px;
   font-weight: 450;
   color: #38424c;
 }
 
-.container > .input {
+.filedrop > .input {
   opacity: 0;
   position: absolute;
   z-index: 2;
@@ -30,25 +29,15 @@
   left: 0;
 }
 
-.container > label {
-  color: white;
-  width: 33%;
-  height: 30%;
-  border-radius: 15px;
-  background-color: #db202f;
-  padding: 7.5px;
-  cursor: pointer;
-  
+.filedrop > label > svg {
+  height: 1.2rem;
+  width: 1.3rem;
 }
 
-.container > label > svg {
-   height: 1.2rem;
-   width: 1.3rem;
-}
-
-.container .lead{
+.filedrop .lead {
   color: black;
   font-size: small;
+  margin: 10px 0px 30px 0px;
 }
 
 .fileover {
@@ -57,9 +46,12 @@
 }
 
 .fileover > .files-list {
-  margin-top: 1.5rem;
   display: flex;
   flex-grow: 1;
+}
+
+.files-list{
+  margin: 0px 0px 40px 0px;
 }
 
 .fileover > .single-file {

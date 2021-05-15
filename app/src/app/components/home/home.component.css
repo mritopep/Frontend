@@ -1,37 +1,11 @@
+/* 
 
-.container{
-    height: 68vh ; 
-
-}
 
 app-file-uploader,app-option{
  
     margin: 0 1rem;
     
 }
-
-
-.bglight{
-    background: #F0F3FC;
-    border-radius: 1rem;
-    overflow-wrap: break-word;
-    width: 75%;
-    height: 68vh ;
-    margin: 0 auto;
-    align-items: center;
-} 
-
-
-.bg-dark{
-    background: #F0F3FC;
-    border-radius: 1rem;
-    overflow-wrap: break-word;
-    width: 75%;
-    height: 68vh ;
-    margin: 0 auto;
-
-} 
-
 
 .midrow{
     height: 72vh;
@@ -45,9 +19,23 @@ app-file-uploader,app-option{
      
 }
 
-footer{
-    height: 11.5vh;
-    
+
+
+ */
+
+.img-container {
+  height: 68vh;
 }
 
+footer {
+  height: 11vh;
+}
 
+.bg-light{
+    background: #F0F3FC;
+    border-radius: 1rem;
+    overflow-wrap: break-word;
+    height: 68vh;
+    margin: 0 auto;
+    align-items: center;
+} 

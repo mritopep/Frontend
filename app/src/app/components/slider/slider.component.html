@@ -1,29 +1,18 @@
-<div class="slider">
+<div class="container-fluid image-card">
     <div class="row">
-        <div class="col">
-            <div class="container  text-center  ">
-                <div class="row">
-                    <p class="h4 p-0 m-1">MRI</p>
-                </div>
-                <div class="slider_img">
-                    <img src="../../../assets/img/background-img.svg" class="">
-                </div>
-                
-                    <div class="slider-pos">
-                        <mat-slider class="p-0"
-                            thumbLabel
-                            step="1"
-                            min="0"
-                            max="100"
-                            aria-label="units"
-                        >
-                        </mat-slider>    
-                    </div>
-                
-            </div>
+        <div class="col text-center">
+            <p class="h4 p-0 m-1">MRI</p>
         </div>
-        
     </div>
-    
-    
+    <div class="row">
+        <div class="col slider_img">
+            <img src="../../../assets/img/background-img.svg" class="">
+        </div>
+    </div>
+    <div class="row d-flex justify-content-center">
+        <div class="col-10">
+            <mat-slider thumbLabel step="1" min="0" max="100" aria-label="units">
+            </mat-slider>
+        </div>  
+    </div>
 </div>

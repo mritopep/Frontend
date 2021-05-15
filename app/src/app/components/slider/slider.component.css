@@ -1,12 +1,9 @@
-.container{
+.image-card{
     background: #F0F3FC;
     border-radius: 1rem ;
-    width: 73%;
-    height: 66vh;
     margin: 0 auto;
     padding: 0;   
     position: relative;
-
 }
 
 .slider_img {
@@ -24,6 +21,7 @@ p{
     color:#4C5268;
     font-weight: 700;
 }
+
 mat-slider {
   width: 100%;
 }
