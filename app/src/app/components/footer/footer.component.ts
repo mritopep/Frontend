@@ -14,6 +14,7 @@ export class FooterComponent implements OnInit {
   @Input() petURL: any;
   @Input() petUploaded: any;
   @Input() processStatus: any;
+  mriUploaded: boolean;
   
   constructor(private webSocket: WebsocketService, private cloudStorage: CloudStorageService, private imageService: ImageService) { }
 
@@ -25,6 +26,7 @@ export class FooterComponent implements OnInit {
       if (fileUploaded) {
         console.log("Mri zip upload");
         this.createMessage("MRI_ZIP_UPLOAD", { uploaded: true });
+        this.mriUploaded = true;
       }
     }).catch((err) => {
       console.log(err);

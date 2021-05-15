@@ -33,10 +33,20 @@ export class HomeComponent implements OnInit {
     this.petUploaded = false;
     this.mriImage = false;
     this.petImage = true;
-    this.mriImagePath="../../../assets/mri_img/";
-    this.petImagePath="../../../assets/pet_img/";
+    this.mriImagePath = "../../../assets/mri_img/";
+    this.petImagePath = "../../../assets/pet_img/";
     this.processStatus = {
-
+      denoise: false,
+      skull_strip: false,
+      bais_correction: false,
+      upload_start: false,
+      upload_end: false,
+      preprocess_start: false,
+      preprocess_end: false,
+      generate_start: false,
+      generate_end: false,
+      saving_start: false,
+      saving_end: false
     };
   }
 
