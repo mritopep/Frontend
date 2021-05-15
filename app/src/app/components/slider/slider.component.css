@@ -1,5 +1,16 @@
+.container{
+    background: #F0F3FC;
+    border-radius: 1rem ;
+    width: 73%;
+    height: 66vh;
+    margin: 0 auto;
+    padding: 0;   
+    position: relative;
+
+}
+
 .slider_img {
-  height: 55vh;
+  height: 56vh;
 }
 
 .slider_img img {
@@ -9,7 +20,23 @@
   padding: 10px;
 }
 
+p{
+    color:#4C5268;
+    font-weight: 700;
+}
 mat-slider {
-  color: #60d490;
   width: 100%;
 }
+
+::ng-deep .mat-accent .mat-slider-thumb {
+    background-color: #60D490;
+} 
+::ng-deep .mat-accent .mat-slider-thumb-label {
+    background-color: #60D490;
+} 
+::ng-deep .mat-accent .mat-slider-track-fill {
+    background-color: #4C5268;
+} 
+
+
+
