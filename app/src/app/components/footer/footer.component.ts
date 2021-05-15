@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { Message } from 'src/app/models/message.model';
 import { CloudStorageService } from 'src/app/services/cloudstorage.service';
 import { ImageService } from 'src/app/services/image.service';
@@ -10,10 +10,17 @@ import { WebsocketService } from 'src/app/services/websocket.service';
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-  @Input() file: File;
+  @Input() file: any;
   @Input() petURL: any;
   @Input() petUploaded: any;
-  @Input() processStatus: any;
+  @Input() 
+  get processStatus(): any {
+    return this._processStatus;
+  }
+  set processStatus(processStatus: any){
+    this._processStatus = processStatus;
+  };
+  private _processStatus = {};
   mriUploaded: boolean;
   
   constructor(private webSocket: WebsocketService, private cloudStorage: CloudStorageService, private imageService: ImageService) { }
@@ -47,6 +54,7 @@ export class FooterComponent implements OnInit {
         this.delete();
         console.log("User downloaded zip");
         this.petUploaded = false;
+        this.mriUploaded = false;
       }
     }).catch((err) => {
       console.log(err);

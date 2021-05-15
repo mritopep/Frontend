@@ -27,12 +27,13 @@ export class HomeComponent implements OnInit {
   processStatus: any;
   mriImagePath: string;
   petImagePath: string;
+  sample: string;
 
   constructor(private webSocket: WebsocketService, private cloudStorage: CloudStorageService, private imageService: ImageService) {
     this.options = new Options();
     this.petUploaded = false;
     this.mriImage = false;
-    this.petImage = true;
+    this.petImage = false;
     this.mriImagePath = "../../../assets/mri_img/";
     this.petImagePath = "../../../assets/pet_img/";
     this.processStatus = {
@@ -51,16 +52,23 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.messageSub = this.webSocket.listen("Messages").subscribe((msg) => {
+    this.messageSub = this.webSocket.listen("Messages").subscribe((data) => {
+      const msg = this.extractData(data);
 
       if (msg.id == "PET_ZIP_UPLOAD" && msg.data.uploaded == true) {
+        console.log(msg.id);
         this.petUploaded = true;
         this.petURL = msg.data.url;
+        console.log(this.petURL);
       }
 
       if (msg.id == "MRI_IMG_UPLOAD" && msg.data.uploaded == true) {
+        console.log(msg.id);
+        console.log(msg.data);
         this.mriImageURL = msg.data.url;
         this.mriTotalSliceNumber = msg.data.total_slice_number;
+        console.log(this.mriImageURL);
+        console.log(this.mriTotalSliceNumber);
         this.imageService.getMriImages(this.mriImageURL).subscribe((data) => {
           if (data.toString() === "MRI_RECIVED") {
             this.mriImage = true;
@@ -70,8 +78,11 @@ export class HomeComponent implements OnInit {
       }
 
       if (msg.id == "PET_IMG_UPLOAD" && msg.data.uploaded == true) {
+        console.log(msg.id);
         this.petImageURL = msg.data.url;
         this.petTotalSliceNumber = msg.data.total_slice_number;
+        console.log(this.petImageURL);
+        console.log(this.petTotalSliceNumber);
         this.imageService.getPetImages(this.petImageURL).subscribe((data) => {
           if (data.toString() === "PET_RECIVED") {
             console.log("Pet image upload");
@@ -81,11 +92,18 @@ export class HomeComponent implements OnInit {
       }
 
       if (msg.id == "PROCESS_STATUS") {
+        console.log(msg.id);
         this.processStatus = msg.data;
+        console.log(this.processStatus);
       }
 
     });
     // this.messages = this.webSocket.getAll("messages");
+  }
+
+  private extractData(res: any) {
+    let body = JSON.parse(JSON.stringify(res));
+    return body || [];
   }
 
   ngOnDestroy() {

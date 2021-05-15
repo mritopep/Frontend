@@ -20,7 +20,7 @@ import { MatSlideToggleModule}  from '@angular/material/slide-toggle';
 import {MatSliderModule} from '@angular/material/slider';
 
 
-const config: SocketIoConfig = { url: "http://94c4f083535c.ngrok.io" , options: {} };
+const config: SocketIoConfig = { url: "http://f21c4f2aff40.ngrok.io" , options: {} };
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({

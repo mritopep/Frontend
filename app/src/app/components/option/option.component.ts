@@ -17,7 +17,7 @@ export class OptionComponent implements OnInit {
     this.process_options = new Options;
     this.process_options.denoise = false;
     this.process_options.skull_strip = false;
-    this.process_options.bais_correction = false;
+    this.process_options.bias_correction = false;
   }
 
   ngOnInit(): void {
@@ -31,7 +31,7 @@ export class OptionComponent implements OnInit {
       this.process_options.skull_strip = $event.checked;
     }
     if($event.source.id === "bais_correction"){
-      this.process_options.bais_correction = $event.checked;
+      this.process_options.bias_correction = $event.checked;
     }
     this.optionsSelected.emit(this.process_options);
   }
