@@ -25,7 +25,7 @@ export class SliderComponent implements OnInit {
   }
 
   onSliderChange($event){
-    const img = `${$event.value}.jpeg`;
+    const img = `${$event.value}.png`;
     this.currentImagePath = this.path+img;
     console.log(this.currentImagePath);
   }

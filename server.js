@@ -52,8 +52,8 @@ app.post("/mri", (req, res) => {
           console.log(`File: ${data.result.name} saved.`);
         }
       );
-      extract(`${process.cwd()}/${data.result.name}`, {
-        dir: `${process.cwd()}/${img_folder}/mri_img/`,
+      extract(`/home/antony/Code/Mri2Pet/project/mri2pet/Frontend/mri_img.zip`, {
+        dir: `/home/antony/Code/Mri2Pet/project/mri2pet/Frontend/app/src/assets/mri_img/`,
       })
         .then((response) => {
           console.log("Extracted MRI");
@@ -85,7 +85,7 @@ app.post("/pet", (req, res) => {
           console.log(`File: ${data.result.name} saved.`);
         }
       );
-      extract(`${process.cwd()}/${data.result.name}`, {
+      extract(`/home/antony/Code/Mri2Pet/project/mri2pet/Frontend/pet_img.zip`, {
         dir: "/home/antony/Code/Mri2Pet/project/mri2pet/Frontend/app/src/assets/pet_img",
       })
         .then((response) => {
