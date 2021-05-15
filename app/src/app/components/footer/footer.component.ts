@@ -52,7 +52,7 @@ export class FooterComponent implements OnInit {
     this.cloudStorage.downloadZipFile(this.petURL).then((fileDownloaded: boolean) => {
       if (fileDownloaded) {
         this.createMessage("DELETE_STATUS", { delete: true });
-        this.delete();
+        // this.delete();
         console.log("User downloaded zip");
         this.petUploaded = false;
         this.mriUploaded = false;

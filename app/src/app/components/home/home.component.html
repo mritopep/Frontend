@@ -3,10 +3,10 @@
     <div class="row d-flex justify-content-around">
         <div class="col-5">
             <div class="bg-light" *ngIf="!mriImage">
-                <div class="">
+                <div>
                     <app-file-uploader (filesUploaded)="onFileUploaded($event)"></app-file-uploader>
                 </div>
-                <div class="">
+                <div>
                     <app-option (optionsSelected)="onSelection($event)"></app-option>
                 </div>
             </div>
