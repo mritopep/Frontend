@@ -11,6 +11,10 @@ var rimraf = require("rimraf");
 const port = 4100;
 const app_folder = "app/dist/UI";
 
+const app_img_folder = "app/src/assets";
+const prod_img_folder = "app/dist/UI/assets";
+const img_folder = app_img_folder;
+
 const app = express();
 
 const dbx = new Dropbox({
@@ -49,7 +53,7 @@ app.post("/mri", (req, res) => {
         }
       );
       extract(`${process.cwd()}/${data.result.name}`, {
-        dir: `${process.cwd()}/app/src/assets/mri_img/`,
+        dir: `${process.cwd()}/${img_folder}/mri_img`,
       })
         .then((response) => {
           res.json("MRI_RECIVED");
@@ -81,7 +85,7 @@ app.post("/pet", (req, res) => {
         }
       );
       extract(`${process.cwd()}/${data.result.name}`, {
-        dir: `${process.cwd()}/app/src/assets/pet_img/`,
+        dir: `${process.cwd()}/${img_folder}/pet_img`,
       })
         .then((response) => {
           res.json("PET_RECIVED");
@@ -102,10 +106,10 @@ app.get("/delete", (req, res) => {
   rimraf(`${process.cwd()}/pet_img.zip`, function () {
     console.log("PET zip deleted");
   });
-  rimraf(`${process.cwd()}/app/src/assets/mri_img/`, function () {
+  rimraf(`${process.cwd()}/${img_folder}/mri_img`, function () {
     console.log("MRI Image folder deleted");
   });
-  rimraf(`${process.cwd()}/app/src/assets/pet_img/`, function () {
+  rimraf(`${process.cwd()}/${img_folder}/pet_img`, function () {
     console.log("PET Image folder deleted");
   });
   res.json("FILES DELETED");

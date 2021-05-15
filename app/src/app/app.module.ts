@@ -22,7 +22,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
 
-const config: SocketIoConfig = { url: "http://91537047248f.ngrok.io" , options: {} };
+const config: SocketIoConfig = { url: "http://b26ef186f3f8.ngrok.io" , options: {} };
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
