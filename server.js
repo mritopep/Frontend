@@ -53,9 +53,10 @@ app.post("/mri", (req, res) => {
         }
       );
       extract(`${process.cwd()}/${data.result.name}`, {
-        dir: `${process.cwd()}/${img_folder}/mri_img`,
+        dir: `${process.cwd()}/${img_folder}/mri_img/`,
       })
         .then((response) => {
+          console.log("Extracted MRI");
           res.json("MRI_RECIVED");
         })
         .catch((err) => {
@@ -85,9 +86,10 @@ app.post("/pet", (req, res) => {
         }
       );
       extract(`${process.cwd()}/${data.result.name}`, {
-        dir: `${process.cwd()}/${img_folder}/pet_img`,
+        dir: "/home/antony/Code/Mri2Pet/project/mri2pet/Frontend/app/src/assets/pet_img",
       })
         .then((response) => {
+          console.log("Extracted PET");
           res.json("PET_RECIVED");
         })
         .catch((err) => {

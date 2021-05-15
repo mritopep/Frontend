@@ -56,7 +56,7 @@
             </div>
         </div>
         
-        <div class="col greenbox" (click)="next()" *ngIf="!petUploaded">
+        <div class="col greenbox" mat-stroked-button (click)="next()" *ngIf="!petUploaded">
             <div class="row h-100 d-flex justify-content-center align-content-center">
                 <div class="col">
                   Next <img src="assets\img\Vector.svg" alt="vector" class="img-fluid next" />
@@ -64,7 +64,7 @@
                 
             </div>
         </div>
-        <div class="col greenbox" (click)="download()" *ngIf="petUploaded">
+        <div class="col greenbox" mat-stroked-button (click)="download()" *ngIf="petUploaded">
             <div class="row h-100 d-flex justify-content-center align-content-center">
                 <div class="col">
                     Download <img src="assets\img\Vector_down.svg" alt="vector" class="img-fluid download" />

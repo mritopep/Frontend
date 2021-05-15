@@ -53,20 +53,14 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.messageSub = this.webSocket.listen("Messages").subscribe((data) => {
-      console.log(data);
       const msg = this.extractData(data);
 
       if (msg.id == "PET_ZIP_UPLOAD" && msg.data.uploaded == true) {
-        console.log(msg.id);
-        console.log(msg.data);
         this.petUploaded = true;
         this.petURL = msg.data.url;
-        console.log(this.petURL);
       }
 
       if (msg.id == "MRI_IMG_UPLOAD" && msg.data.uploaded == true) {
-        console.log(msg.id);
-        console.log(msg.data);
         this.mriImageURL = msg.data.url;
         this.mriTotalSliceNumber = msg.data.total_slice_number;
         console.log(this.mriImageURL);
@@ -74,30 +68,26 @@ export class HomeComponent implements OnInit {
         this.imageService.getMriImages(this.mriImageURL).subscribe((data) => {
           if (data.toString() === "MRI_RECIVED") {
             this.mriImage = true;
-            console.log("Mri image upload")
+            console.log("MRI_RECIVED");
           }
         });
       }
 
       if (msg.id == "PET_IMG_UPLOAD" && msg.data.uploaded == true) {
-        console.log(msg.id);
-        console.log(msg.data);
         this.petImageURL = msg.data.url;
         this.petTotalSliceNumber = msg.data.total_slice_number;
         console.log(this.petImageURL);
         console.log(this.petTotalSliceNumber);
         this.imageService.getPetImages(this.petImageURL).subscribe((data) => {
           if (data.toString() === "PET_RECIVED") {
-            console.log("Pet image upload");
             this.petImage = true;
+            console.log("PET_RECIVED");
           }
         });
       }
 
       if (msg.id == "PROCESS_STATUS") {
-        console.log(msg.id);
         this.processStatus = msg.data;
-        console.log(this.processStatus);
       }
 
     });
@@ -119,7 +109,6 @@ export class HomeComponent implements OnInit {
 
   onSelection($event) {
     this.options = $event;
-    console.log(this.options);
     this.createMessage("OPTION", this.options);
   }
 

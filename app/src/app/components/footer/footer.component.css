@@ -1,79 +1,75 @@
-
-.bluebox{
-    overflow-wrap: break-word;
-    word-break:break-all;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.bluebox {
+  overflow-wrap: break-word;
+  word-break: break-all;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.bb1{
-    background-color: #3B4056 ;
+.bb1 {
+  background-color: #3b4056;
 }
-.bb2{
-    background-color: #41496C;
-
+.bb2 {
+  background-color: #41496c;
 }
-.bb3{
-    background-color: #495382;
+.bb3 {
+  background-color: #495382;
 }
-.bb4{
-    background-color: #4F5E9E;
-
+.bb4 {
+  background-color: #4f5e9e;
 }
-.bb5{
-    background-color: #3B4056 
-
+.bb5 {
+  background-color: #3b4056;
 }
-.bluebox .bi-check-circle-fill
-   {
-       color: #60D490;
-       width: 20px;
-       height: 20px;
-   }
-
-.greenbox{
-    background-color: #60D490; 
-    color: white;
-    font-size: 1.5rem;
-    font-weight: 400;
-    letter-spacing: 1.5px;
-    text-align: center;
-    cursor:pointer;
+.bluebox .bi-check-circle-fill {
+  color: #60d490;
+  width: 20px;
+  height: 20px;
 }
 
-.bluebox a{
-    color: white;
-    font-size: 1rem;
+.greenbox {
+  background-color: #60d490;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  text-align: center;
+  cursor: pointer;
 }
 
-
-a{
-    text-decoration: none;
-    
-    
-}
-.download{
-    height: 0.7em;
-}
-.next{
-    height: 0.8em;
-}
- 
-.bfr_upload{
-    text-align:left;
-}
-.step{
-    text-align: center;
-}
-.bfr_upload>p{
-    font-size: 14px;
-}
-.bfr_upload>.lead>span{
-    font-weight: 500;
+.bluebox a {
+  color: white;
+  font-size: 1rem;
 }
 
-mat-spinner{
-    color: #60D490;
+a {
+  text-decoration: none;
+}
+.download {
+  height: 0.7em;
+}
+.next {
+  height: 0.8em;
+}
+
+.bfr_upload {
+  text-align: left;
+}
+.step {
+  text-align: center;
+}
+.bfr_upload > p {
+  font-size: 14px;
+}
+.bfr_upload > .lead > span {
+  font-weight: 500;
+}
+
+mat-spinner {
+  color: #60d490;
+}
+
+mat-form-field {
+  margin-right: 12px;
 }

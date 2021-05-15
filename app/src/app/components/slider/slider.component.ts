@@ -18,10 +18,10 @@ export class SliderComponent implements OnInit {
 
   ngOnInit(): void {
     this.currentSliceNumber = this.totalSliceNumber/2;
-    // console.log(this.currentSliceNumber);
-    // console.log(this.name);
-    // console.log(this.path);
-    // console.log(this.totalSliceNumber);
+    console.log(this.currentSliceNumber);
+    console.log(this.name);
+    console.log(this.path);
+    console.log(this.totalSliceNumber);
   }
 
   onSliderChange($event){
