@@ -82,8 +82,8 @@ export class CloudStorageService {
           });
           const url = window.URL.createObjectURL(blob);
           console.log("PET_ZIP_DOWNLOAD");
-          window.open(url);
           resolve(true);
+          window.open(url);
         })
         .catch((err: Error<sharing.GetSharedLinkFileError>) => {
           reject(err);

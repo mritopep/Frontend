@@ -18,9 +18,11 @@ import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { OptionComponent } from './components/option/option.component';
 import { MatSlideToggleModule}  from '@angular/material/slide-toggle';
 import {MatSliderModule} from '@angular/material/slider';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 
-const config: SocketIoConfig = { url: "http://f21c4f2aff40.ngrok.io" , options: {} };
+
+const config: SocketIoConfig = { url: "http://a05133ecfcae.ngrok.io" , options: {} };
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
@@ -44,7 +46,8 @@ import { HttpClientModule } from '@angular/common/http';
     SocketIoModule.forRoot(config),
     MatSlideToggleModule,
     HttpClientModule,
-    MatSliderModule
+    MatSliderModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -33,6 +33,7 @@ app.get("/", (req, res) => {
 
 app.post("/mri", (req, res) => {
   const link = req.body.sharedLink;
+  console.log(link);
   dbx
     .sharingGetSharedLinkFile({ url: link })
     .then((data) => {
@@ -64,6 +65,7 @@ app.post("/mri", (req, res) => {
 
 app.post("/pet", (req, res) => {
   const link = req.body.sharedLink;
+  console.log(link);
   dbx
     .sharingGetSharedLinkFile({ url: link })
     .then((data) => {

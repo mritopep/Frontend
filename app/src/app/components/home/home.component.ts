@@ -53,10 +53,12 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.messageSub = this.webSocket.listen("Messages").subscribe((data) => {
+      console.log(data);
       const msg = this.extractData(data);
 
       if (msg.id == "PET_ZIP_UPLOAD" && msg.data.uploaded == true) {
         console.log(msg.id);
+        console.log(msg.data);
         this.petUploaded = true;
         this.petURL = msg.data.url;
         console.log(this.petURL);
@@ -79,6 +81,7 @@ export class HomeComponent implements OnInit {
 
       if (msg.id == "PET_IMG_UPLOAD" && msg.data.uploaded == true) {
         console.log(msg.id);
+        console.log(msg.data);
         this.petImageURL = msg.data.url;
         this.petTotalSliceNumber = msg.data.total_slice_number;
         console.log(this.petImageURL);
@@ -102,7 +105,7 @@ export class HomeComponent implements OnInit {
   }
 
   private extractData(res: any) {
-    let body = JSON.parse(JSON.stringify(res));
+    let body = JSON.parse(res);
     return body || [];
   }
 

@@ -56,3 +56,7 @@ a{
 .bfr_upload>.lead>span{
     font-weight: 500;
 }
+
+mat-spinner{
+    color: #60D490;
+}
