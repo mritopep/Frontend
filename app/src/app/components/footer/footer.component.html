@@ -55,16 +55,21 @@
 
             </div>
         </div>
-        <div class="col greenbox  d-flex align-items-center justify-content-center">
-            <div class="container text-center">
-                <a href="#" (click)="next()" *ngIf="!petUploaded">
-                    Next
-                    <img src="assets\img\Vector.svg" alt="vector" class="img-fluid next" />
-                </a>
-                <a href="#" (click)="download()" *ngIf="petUploaded">
-                    Download
-                    <img src="assets\img\Vector_down.svg" alt="vector" class="img-fluid download" />
-                </a>
+        
+        <div class="col greenbox " (click)="next()" *ngIf="!petUploaded">
+            <div class="row h-100 d-flex justify-content-center align-content-center">
+                <div class="col">
+                  Next <img src="assets\img\Vector.svg" alt="vector" class="img-fluid next" />
+                </div>
+                
+            </div>
+        </div>
+        <div class="col greenbox " (click)="download()" *ngIf="petUploaded">
+            <div class="row h-100 d-flex justify-content-center align-content-center">
+                <div class="col">
+                    Download <img src="assets\img\Vector_down.svg" alt="vector" class="img-fluid download" />
+                </div>
+                
             </div>
         </div>
 
