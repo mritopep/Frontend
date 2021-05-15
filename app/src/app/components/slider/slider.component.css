@@ -1,5 +1,5 @@
 .image-card{
-    background: #F0F3FC;
+    background: #4C5268;
     border-radius: 1rem ;
     margin: 0 auto;
     padding: 0;   
@@ -18,7 +18,7 @@
 }
 
 p{
-    color:#4C5268;
+    color:#fff;
     font-weight: 700;
 }
 
@@ -33,7 +33,7 @@ mat-slider {
     background-color: #60D490;
 } 
 ::ng-deep .mat-accent .mat-slider-track-fill {
-    background-color: #4C5268;
+    background-color: #60D490;
 } 
 
 
