@@ -1,6 +1,5 @@
 
 .bluebox{
-    background-color: #4C5268 ;
     overflow-wrap: break-word;
     word-break:break-all;
     color: white;
@@ -9,6 +8,24 @@
     justify-content: center;
 }
 
+.bb1{
+    background-color: #3B4056 ;
+}
+.bb2{
+    background-color: #41496C;
+
+}
+.bb3{
+    background-color: #495382;
+}
+.bb4{
+    background-color: #4F5E9E;
+
+}
+.bb5{
+    background-color: #3B4056 
+
+}
 .bluebox .bi-check-circle-fill
    {
        color: #60D490;

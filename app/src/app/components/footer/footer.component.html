@@ -1,12 +1,12 @@
 <div class="container-fluid justify-content-center align-content-center h-100">
     <div class="row h-100 ">
-        <div class="col bluebox" *ngIf="!mriUploaded" >
+        <div class="col bluebox bb1" *ngIf="!mriUploaded" >
             <div class="bfr_upload">
                 <h3 class="lead my-1">Steps</h3>
                 <p class="lead">Please upload file and click <span>Next</span></p>
             </div>
         </div>
-        <div class="col bluebox">
+        <div class="col bluebox bb2">
             <div class="step" id="preprocessing">
                 <h3 class="lead mb-0" *ngIf="processStatus.preprocess_start" >Preprocessing</h3>
                 <svg *ngIf="processStatus.preprocess_end" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -18,7 +18,7 @@
 
             </div>
         </div>
-        <div class="col bluebox">
+        <div class="col bluebox bb3">
             <div class="step" id="generating">
                 <h3 class="lead mb-0" *ngIf="processStatus.generate_start">Generating</h3>
                 <svg *ngIf="processStatus.generate_end" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -31,7 +31,7 @@
 
             </div>
         </div>
-        <div class="col bluebox">
+        <div class="col bluebox bb4">
             <div class="step" id="saving_file">
                 <h3 class="lead mb-0" *ngIf="processStatus.saving_start" >Saving File</h3>
                 <svg *ngIf="processStatus.saving_end" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -43,7 +43,7 @@
 
             </div>
         </div>
-        <div class="col bluebox">
+        <div class="col bluebox bb5">
             <div class="step" id="uploading_file">
                 <h3 class="lead mb-0" *ngIf="processStatus.upload_start">Uploading File</h3>
                 <svg *ngIf="processStatus.upload_end" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
