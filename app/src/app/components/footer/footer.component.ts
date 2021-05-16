@@ -1,13 +1,11 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit, Output, EventEmitter } from '@angular/core';
 import { Message } from 'src/app/models/message.model';
-import { CloudStorageService } from 'src/app/services/cloudstorage.service';
 import { WebsocketService } from 'src/app/services/websocket.service';
 import {
   MatSnackBar,
   MatSnackBarHorizontalPosition,
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
-
 
 @Component({
   selector: 'app-footer',
@@ -16,6 +14,7 @@ import {
 })
 export class FooterComponent implements OnInit {
   @Input() file: any;
+  @Output() deleteFile = new EventEmitter<any>();
   @Input() petURL: any;
   @Input() petUploaded: any;
   @Input()
@@ -31,7 +30,7 @@ export class FooterComponent implements OnInit {
   verticalPosition: MatSnackBarVerticalPosition = 'top';
   durationInSeconds = 3;
 
-  constructor(private webSocket: WebsocketService, private cloudStorage: CloudStorageService, private _snackBar: MatSnackBar) { }
+  constructor(private webSocket: WebsocketService, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -64,18 +63,13 @@ export class FooterComponent implements OnInit {
   download() {
     this.openSnackBar("Wait a Min, Admire the Joy of Life ⚡", "OK")
     console.log(this.petURL);
-    this.cloudStorage.downloadZipFile(this.petURL).then((fileDownloaded: boolean) => {
-      if (fileDownloaded) {
-        console.log("User downloaded zip");
-        this.createMessage("DELETE_STATUS", { delete: true });
-        this.openSnackBar("Files Deleted 🔥", "OK")
-        this.petUploaded = false;
-        this.mriUploaded = false;
-        this._processStatus = {};
-      }
-    }).catch((err) => {
-      console.log(err);
-    });
+    window.open(this.petURL);
+    this.deleteFile.emit(true);
+    this.createMessage("DELETE_STATUS", { delete: true });
+    this.openSnackBar("Files Deleted 🔥", "OK")
+    this.petUploaded = false;
+    this.mriUploaded = false;
+    this._processStatus = {};
   }
 
   openSnackBar(message: string, action: string) {

@@ -15,8 +15,7 @@ export class ImgBase64Component implements OnInit {
   }
 
   transform() {
-    const image = `data:image/png;base64, ${this.base64Image}`; 
-    console.log(image);
+    const image = `data:image/png;base64, ${this.base64Image}`;
     return this.sanitizer.bypassSecurityTrustResourceUrl(image);
   }
 

@@ -62,17 +62,6 @@ export class CloudStorageService {
     });
   }
 
-  downloadFile(sharedLink: string) {
-    this.dbx.sharingGetSharedLinkFile({ url: sharedLink })
-      .then((data: any) => {
-        console.log("File Recived");
-        console.log(data);
-      })
-      .catch((err: Error<sharing.GetSharedLinkFileError>) => {
-        console.log(err);
-      });
-  }
-
   downloadZipFile(sharedLink: string) {
     return new Promise((resolve, reject) => {
       this.dbx.sharingGetSharedLinkFile({ url: sharedLink })
@@ -82,13 +71,11 @@ export class CloudStorageService {
           });
           const url = window.URL.createObjectURL(blob);
           console.log("PET_ZIP_DOWNLOAD");
-          resolve(true);
-          window.open(url);
+          resolve(url);
         })
         .catch((err: Error<sharing.GetSharedLinkFileError>) => {
           reject(err);
         });
-
     });
   }
 

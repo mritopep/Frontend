@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { FooterComponent } from './components/footer/footer.component';
-import { SliderComponent } from './components/slider/slider.component';
 import { FileUploaderComponent } from './components/file-uploader/file-uploader.component';
 import { HomeComponent } from './components/home/home.component';
 import { FeatureComponent } from './components/feature/feature.component';
@@ -23,7 +22,7 @@ import {MatSliderModule} from '@angular/material/slider';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 
-const config: SocketIoConfig = { url: "http://d74020f41ae0.ngrok.io" , options: {} };
+const config: SocketIoConfig = { url: "http://5f62c79b3738.ngrok.io" , options: {} };
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -32,7 +31,6 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    SliderComponent,
     FileUploaderComponent,
     HomeComponent,
     FeatureComponent,
