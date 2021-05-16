@@ -25,17 +25,15 @@ export class HomeComponent implements OnInit {
   petTotalSliceNumber: any;
   petImage: boolean;
   processStatus: any;
-  mriImageFiles: any;
-  petImageFiles: any;
+  mriImageFiles: any[] = [];
+  petImageFiles: any[] = [];
   sample: string;
 
   constructor(private webSocket: WebsocketService) {
     this.options = new Options();
     this.petUploaded = false;
-    this.mriImage = true;
-    this.petImage = true;
-    this.mriTotalSliceNumber = 100;
-    this.petTotalSliceNumber = 100;
+    this.mriImage = false;
+    this.petImage = false;
     this.processStatus = {
       denoise: false,
       skull_strip: false,
@@ -52,7 +50,17 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.messages = this.webSocket.getAll("Messages");
+    this.mriImageSub = this.webSocket.listen("MRI").subscribe((data) => {
+      const msg = this.extractData(data);
+      console.log(`MRI IMAGE SLICE ${msg.slice_no} RECIVED`)
+      this.mriImageFiles[Number(msg.slice_no)] = msg.data;  
+    });
+
+    this.petImageSub = this.webSocket.listen("PET").subscribe((data) => {
+      const msg = this.extractData(data);
+      console.log(`PET IMAGE SLICE ${msg.slice_no} RECIVED`)
+      this.petImageFiles[Number(msg.slice_no)] = msg.data;  
+    });
     this.messageSub = this.webSocket.listen("Messages").subscribe((data) => {
       const msg = this.extractData(data);
 
@@ -62,17 +70,17 @@ export class HomeComponent implements OnInit {
       }
 
       if (msg.id == "MRI_IMG_UPLOAD" && msg.data.uploaded == true) {
+        console.log("MRI_RECIVED");
         this.mriTotalSliceNumber = msg.data.total_slice_number;
         console.log(this.mriTotalSliceNumber);
         this.mriImage = true;
-        console.log("MRI_RECIVED");
       }
 
       if (msg.id == "PET_IMG_UPLOAD" && msg.data.uploaded == true) {
+        console.log("PET_RECIVED");
         this.petTotalSliceNumber = msg.data.total_slice_number;
         console.log(this.petTotalSliceNumber);
         this.petImage = true;
-        console.log("PET_RECIVED");
       }
 
       if (msg.id == "PROCESS_STATUS") {
@@ -80,17 +88,6 @@ export class HomeComponent implements OnInit {
       }
 
     });
-
-    this.mriImageSub = this.webSocket.listen("MRI").subscribe((data) => {
-      const msg = this.extractData(data);
-      this.mriImageFiles[msg.slice_no] = msg.data;  
-    });
-
-    this.petImageSub = this.webSocket.listen("PET").subscribe((data) => {
-      const msg = this.extractData(data);
-      this.petImageFiles[msg.slice_no] = msg.data;  
-    });
-
     // this.messages = this.webSocket.getAll("messages");
   }
 
