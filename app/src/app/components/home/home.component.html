@@ -20,6 +20,6 @@
         </div>
     </div>
     <footer class="fixed-bottom">
-        <app-footer [file]="file" [petUploaded]="petUploaded" [petURL]="petURL" [processStatus]='processStatus'></app-footer>
+        <app-footer [file]="file" [petUploaded]="petUploaded" [petURL]="petURL" [processStatus]='processStatus' (deleteFile)="deleteFiles($event)"></app-footer>
     </footer>
 </div>
