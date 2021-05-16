@@ -1,15 +1,6 @@
-<button class="btn-primary" (click)="getMri()"> MRI images </button>
-<br>
-<button class="btn-primary" (click)="getPet()"> PET images </button>
-<br>
-<button class="btn-primary" (click)="Delete()"> Delete </button>
-
-<div *ngIf="mriImage">
-    <p >MRI GOT</p>
-    <img src="../../../assets/mri_img/1.png">
+<div class="container-fluid">
+    <app-navbar></app-navbar>
+    <footer class="fixed-bottom">
+        <app-footer></app-footer>
+    </footer>
 </div>
-<div *ngIf="petImage">
-    <p >PET GOT</p>
-    <img src="../../../assets/pet_img/1.png">
-</div>
-

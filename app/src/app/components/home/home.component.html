@@ -10,13 +10,15 @@
                     <app-option (optionsSelected)="onSelection($event)"></app-option>
                 </div>
             </div>
-            <app-slider *ngIf="mriImage" [name]="'MRI'" [path]="mriImagePath" [totalSliceNumber]="mriTotalSliceNumber"></app-slider>
+            <!-- <app-slider *ngIf="mriImage" [name]="'MRI'" [path]="mriImagePath" [totalSliceNumber]="mriTotalSliceNumber"></app-slider> -->
+            <app-scanviewer *ngIf="mriImage" [name]="'MRI'" [imageFiles]="mriImageFiles" [totalSliceNumber]="mriTotalSliceNumber" ></app-scanviewer>
         </div>
         <div class="col-5">
             <div class="img-container" *ngIf="!petImage">
                 <img src="../../../assets/img/background-img.svg" alt="bg-img" class="img-fluid bgimg">
             </div>
-            <app-slider *ngIf="petImage" [name]="'PET'" [path]="petImagePath" [totalSliceNumber]="petTotalSliceNumber"></app-slider>
+            <!-- <app-slider *ngIf="petImage" [name]="'PET'" [path]="petImagePath" [totalSliceNumber]="petTotalSliceNumber" ></app-slider> -->
+            <app-scanviewer *ngIf="petImage" [name]="'PET'" [imageFiles]="petImageFiles" [totalSliceNumber]="petTotalSliceNumber" ></app-scanviewer>
         </div>
     </div>
     <footer class="fixed-bottom">

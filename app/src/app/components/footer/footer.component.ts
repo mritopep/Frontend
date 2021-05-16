@@ -1,7 +1,6 @@
 import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { Message } from 'src/app/models/message.model';
 import { CloudStorageService } from 'src/app/services/cloudstorage.service';
-import { ImageService } from 'src/app/services/image.service';
 import { WebsocketService } from 'src/app/services/websocket.service';
 import {
   MatSnackBar,
@@ -29,29 +28,30 @@ export class FooterComponent implements OnInit {
   private _processStatus = {};
   mriUploaded: boolean;
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
-  verticalPosition: MatSnackBarVerticalPosition = 'top';
+  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
   durationInSeconds = 3;
 
-  constructor(private webSocket: WebsocketService, private cloudStorage: CloudStorageService, private imageService: ImageService, private _snackBar: MatSnackBar) { }
+  constructor(private webSocket: WebsocketService, private cloudStorage: CloudStorageService, private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
 
   next() {
     this.openSnackBar("Process Started 👍", "OK")
-    this.cloudStorage.uploadFile("mri.zip", this.file).then((fileUploaded: boolean) => {
-      if (fileUploaded) {
-        console.log("Mri zip upload");
-        this.createMessage("MRI_ZIP_UPLOAD", { uploaded: true });
-        this.mriUploaded = true;
-      }
-    }).catch((err) => {
-      console.log(err);
-    });
 
-    // console.log("Mri zip upload");
-    // this.createMessage("MRI_ZIP_UPLOAD", { uploaded: true });
-    // this.mriUploaded = true;
+    // this.cloudStorage.uploadFile("mri.zip", this.file).then((fileUploaded: boolean) => {
+    //   if (fileUploaded) {
+    //     console.log("Mri zip upload");
+    //     this.createMessage("MRI_ZIP_UPLOAD", { uploaded: true });
+    //     this.mriUploaded = true;
+    //   }
+    // }).catch((err) => {
+    //   console.log(err);
+    // });
+
+    console.log("Mri zip upload");
+    this.createMessage("MRI_ZIP_UPLOAD", { uploaded: true });
+    this.mriUploaded = true;
   }
 
   createMessage(id, data) {
@@ -62,30 +62,24 @@ export class FooterComponent implements OnInit {
   }
 
   download() {
-    this.openSnackBar("Download Started ⚡", "OK")
+    this.openSnackBar("Wait a Min, Admire the Joy of Life ⚡", "OK")
     console.log(this.petURL);
     this.cloudStorage.downloadZipFile(this.petURL).then((fileDownloaded: boolean) => {
       if (fileDownloaded) {
         this.createMessage("DELETE_STATUS", { delete: true });
+        this.openSnackBar("Files Deleted 🔥", "OK")
         // this.delete();
         console.log("User downloaded zip");
         this.petUploaded = false;
         this.mriUploaded = false;
+        this._processStatus = {};
       }
     }).catch((err) => {
       console.log(err);
     });
   }
 
-  delete() {
-    this.openSnackBar("Files Deleted 🔥", "OK")
-    this.imageService.deleteContent().subscribe((data) => {
-      console.log(data);
-    });
-  }
-
   openSnackBar(message: string, action: string) {
-    console.log("hello");
     this._snackBar.open(message, action, {
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,

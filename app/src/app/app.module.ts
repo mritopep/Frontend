@@ -13,6 +13,8 @@ import { FeatureComponent } from './components/feature/feature.component';
 import { AboutComponent } from './components/about/about.component';
 import { DndDirective } from './directives/dnd.directive';
 import { ProgressComponent } from './components/progress/progress.component';
+import { ImgBase64Component } from './components/img-base64/img-base64.component';
+import { ScanviewerComponent } from './components/scanviewer/scanviewer.component';
 
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { OptionComponent } from './components/option/option.component';
@@ -21,10 +23,9 @@ import {MatSliderModule} from '@angular/material/slider';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 
-
-
-const config: SocketIoConfig = { url: "http://ce60d9afe9c0.ngrok.io" , options: {} };
+const config: SocketIoConfig = { url: "http://8bcb1f261e70.ngrok.io" , options: {} };
 import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -38,7 +39,9 @@ import { HttpClientModule } from '@angular/common/http';
     AboutComponent,
     DndDirective,
     ProgressComponent,
-    OptionComponent
+    OptionComponent,
+    ImgBase64Component,
+    ScanviewerComponent
   ],
   imports: [
     BrowserModule,
