@@ -4,17 +4,16 @@
             <div class="step" id="preprocessing">
                 <div class="row h-100 d-flex justify-content-center align-content-center">
                     <div class="col">
-                        <h3 *ngIf="!mriUploaded" class="lead my-1">Steps</h3>
-                        <p *ngIf="!mriUploaded" class="lead">Please upload file and click <span>Next</span></p>
+            
                         <h3 class="lead mb-0" *ngIf="processStatus.preprocess_start">Preprocessing</h3>
                         <svg *ngIf="processStatus.preprocess_end" xmlns="http://www.w3.org/2000/svg" width="16"
                             height="16" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
                             <path
                                 d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
                         </svg>
-
-                        <mat-spinner [color]="'warn'" [diameter]='50'
-                            *ngIf="processStatus.preprocess_start && !processStatus.preprocess_end"></mat-spinner>
+                        <h3 *ngIf="!mriUploaded"class="lead my-1 bfr_upload_h3">Steps</h3>
+                        <p *ngIf="!mriUploaded" class="lead bfr_upload_p">Please upload file and click <span>Next</span></p>
+                        <mat-spinner [diameter]='50' *ngIf="processStatus.preprocess_start && !processStatus.preprocess_end"></mat-spinner>
                     </div>
                 </div>
             </div>
@@ -28,9 +27,8 @@
                             height="16" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
                             <path
                                 d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
-                        </svg>
-                        <mat-spinner [color]="'warn'" [diameter]='50'
-                            *ngIf="processStatus.generate_start && !processStatus.generate_end"></mat-spinner>
+                        </svg>                
+                        <mat-spinner  [diameter]='50' *ngIf="processStatus.generate_start && !processStatus.generate_end"></mat-spinner>
                     </div>
                 </div>
             </div>
@@ -45,8 +43,7 @@
                             <path
                                 d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
                         </svg>
-                        <mat-spinner [color]="'warn'" [diameter]='50'
-                            *ngIf="processStatus.saving_start && !processStatus.saving_end"></mat-spinner>
+                        <mat-spinner  [diameter]='50' *ngIf="processStatus.saving_start && !processStatus.saving_end"></mat-spinner>
                     </div>
                 </div>
             </div>
@@ -61,8 +58,7 @@
                             <path
                                 d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z" />
                         </svg>
-                        <mat-spinner [color]="'warn'" [diameter]='50'
-                            *ngIf="processStatus.upload_start && !processStatus.upload_end"></mat-spinner>
+                        <mat-spinner  [diameter]='50' *ngIf="processStatus.upload_start && !processStatus.upload_end"></mat-spinner>
                     </div>
                 </div>
             </div>
