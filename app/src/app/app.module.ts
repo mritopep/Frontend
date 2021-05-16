@@ -23,7 +23,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 
 
-const config: SocketIoConfig = { url: "http://217ad4729ecd.ngrok.io" , options: {} };
+const config: SocketIoConfig = { url: "http://ce60d9afe9c0.ngrok.io" , options: {} };
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
