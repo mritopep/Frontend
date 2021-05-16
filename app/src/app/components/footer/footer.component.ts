@@ -28,7 +28,7 @@ export class FooterComponent implements OnInit {
   private _processStatus = {};
   mriUploaded: boolean;
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
-  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
   durationInSeconds = 3;
 
   constructor(private webSocket: WebsocketService, private cloudStorage: CloudStorageService, private _snackBar: MatSnackBar) { }
@@ -66,10 +66,9 @@ export class FooterComponent implements OnInit {
     console.log(this.petURL);
     this.cloudStorage.downloadZipFile(this.petURL).then((fileDownloaded: boolean) => {
       if (fileDownloaded) {
+        console.log("User downloaded zip");
         this.createMessage("DELETE_STATUS", { delete: true });
         this.openSnackBar("Files Deleted 🔥", "OK")
-        // this.delete();
-        console.log("User downloaded zip");
         this.petUploaded = false;
         this.mriUploaded = false;
         this._processStatus = {};
