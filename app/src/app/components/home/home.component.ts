@@ -27,8 +27,6 @@ export class HomeComponent implements OnInit {
   petTotalSliceNumber: any;
   petImage: boolean;
   processStatus: any;
-  mriImagePath: string;
-  petImagePath: string;
   mriImageFiles: any;
   petImageFiles: any;
   sample: string;
@@ -36,10 +34,10 @@ export class HomeComponent implements OnInit {
   constructor(private webSocket: WebsocketService, private cloudStorage: CloudStorageService, private imageService: ImageService) {
     this.options = new Options();
     this.petUploaded = false;
-    this.mriImage = false;
-    this.petImage = false;
-    this.mriImagePath = "../../../assets/mri_img/";
-    this.petImagePath = "../../../assets/pet_img/";
+    this.mriImage = true;
+    this.petImage = true;
+    this.mriTotalSliceNumber = 100;
+    this.petTotalSliceNumber = 100;
     this.processStatus = {
       denoise: false,
       skull_strip: false,
