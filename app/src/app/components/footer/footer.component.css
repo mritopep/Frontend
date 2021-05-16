@@ -53,23 +53,26 @@ a {
   height: 0.8em;
 }
 
-.bfr_upload {
+.bb2 .bfr_upload_p,.bb2 .bfr_upload_h3{
   text-align: left;
 }
 .step {
   text-align: center;
 }
-.bfr_upload > p {
+.bfr_upload_p {
   font-size: 14px;
 }
-.bfr_upload > .lead > span {
+.bb2 span {
   font-weight: 500;
 }
 
-mat-spinner {
-  color: #60d490;
+.col ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+  stroke: #60d490;
 }
 
+mat-spinner
+{margin:0 auto;
+}
 mat-form-field {
   margin-right: 12px;
 }
