@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { Message } from 'src/app/models/message.model';
 import { Options } from 'src/app/models/options.model';
-import { CloudStorageService } from 'src/app/services/cloudstorage.service';
-import { ImageService } from 'src/app/services/image.service';
 import { WebsocketService } from 'src/app/services/websocket.service';
 
 @Component({
@@ -31,7 +29,7 @@ export class HomeComponent implements OnInit {
   petImageFiles: any;
   sample: string;
 
-  constructor(private webSocket: WebsocketService, private cloudStorage: CloudStorageService, private imageService: ImageService) {
+  constructor(private webSocket: WebsocketService) {
     this.options = new Options();
     this.petUploaded = false;
     this.mriImage = true;
@@ -54,6 +52,7 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // this.messages = this.webSocket.getAll("Messages");
     this.messageSub = this.webSocket.listen("Messages").subscribe((data) => {
       const msg = this.extractData(data);
 

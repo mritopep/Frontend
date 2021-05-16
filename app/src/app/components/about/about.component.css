@@ -1,0 +1,16 @@
+.img-container {
+  height: 68vh;
+}
+
+footer {
+  height: 11vh;
+}
+
+.bg-light {
+  background: #f0f3fc;
+  border-radius: 1rem;
+  overflow-wrap: break-word;
+  height: 68vh;
+  margin: 0 auto;
+  align-items: center;
+}
