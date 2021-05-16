@@ -62,17 +62,6 @@ export class CloudStorageService {
     });
   }
 
-  downloadFile(sharedLink: string) {
-    this.dbx.sharingGetSharedLinkFile({ url: sharedLink })
-      .then((data: any) => {
-        console.log("File Recived");
-        console.log(data);
-      })
-      .catch((err: Error<sharing.GetSharedLinkFileError>) => {
-        console.log(err);
-      });
-  }
-
   downloadZipFile(sharedLink: string) {
     return new Promise((resolve, reject) => {
       this.dbx.sharingGetSharedLinkFile({ url: sharedLink })
