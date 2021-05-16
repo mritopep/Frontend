@@ -4,8 +4,7 @@
             <div class="step" id="preprocessing">
                 <div class="row h-100 d-flex justify-content-center align-content-center">
                     <div class="col">
-                        <h3 *ngIf="!mriUploaded" class="lead my-1">Steps</h3>
-                        <p *ngIf="!mriUploaded" class="lead">Please upload file and click <span>Next</span></p>
+            
                         <h3 class="lead mb-0" *ngIf="processStatus.preprocess_start">Preprocessing</h3>
                         <svg *ngIf="processStatus.preprocess_end" xmlns="http://www.w3.org/2000/svg" width="16"
                             height="16" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 16 16">
