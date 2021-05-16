@@ -31,23 +31,26 @@ export class FooterComponent implements OnInit {
   verticalPosition: MatSnackBarVerticalPosition = 'top';
   durationInSeconds = 3;
 
-  constructor(private webSocket: WebsocketService, private _snackBar: MatSnackBar,private cloudStorage: CloudStorageService) { }
+  constructor(private webSocket: WebsocketService, private _snackBar: MatSnackBar, private cloudStorage: CloudStorageService) { }
 
   ngOnInit(): void {
   }
 
   next() {
-    this.openSnackBar("Process Started 👍", "OK")
-    this.cloudStorage.uploadFile("mri.zip", this.file).then((fileUploaded: boolean) => {
-      if (fileUploaded) {
-        console.log("Mri zip upload");
-        this.createMessage("MRI_ZIP_UPLOAD", { uploaded: true });
-        this.mriUploaded = true;
-      }
-    }).catch((err) => {
-      console.log(err);
-    });
-
+    if (this.file) {
+      this.openSnackBar("Process Started 👍", "OK")
+      this.cloudStorage.uploadFile("mri.zip", this.file).then((fileUploaded: boolean) => {
+        if (fileUploaded) {
+          console.log("Mri zip upload");
+          this.createMessage("MRI_ZIP_UPLOAD", { uploaded: true });
+          this.mriUploaded = true;
+        }
+      }).catch((err) => {
+        console.log(err);
+      });
+    } else {
+      this.openSnackBar("Upload a File First 😅", "OK")
+    }
     // console.log("Mri zip upload");
     // this.createMessage("MRI_ZIP_UPLOAD", { uploaded: true });
     // this.mriUploaded = true;
