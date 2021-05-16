@@ -14,6 +14,8 @@ import { WebsocketService } from 'src/app/services/websocket.service';
 export class HomeComponent implements OnInit {
   messages: Observable<any[]>;
   messageSub: Subscription;
+  mriImageSub: Subscription;
+  petImageSub: Subscription;
   options: Options;
   file: File;
   petUploaded: boolean;
@@ -63,29 +65,17 @@ export class HomeComponent implements OnInit {
       }
 
       if (msg.id == "MRI_IMG_UPLOAD" && msg.data.uploaded == true) {
-        this.mriImageURL = msg.data.url;
         this.mriTotalSliceNumber = msg.data.total_slice_number;
-        console.log(this.mriImageURL);
         console.log(this.mriTotalSliceNumber);
-        this.imageService.getMriImages(this.mriImageURL).subscribe((data) => {
-          if (data.toString() === "MRI_RECIVED") {
-            this.mriImage = true;
-            console.log("MRI_RECIVED");
-          }
-        });
+        this.mriImage = true;
+        console.log("MRI_RECIVED");
       }
 
       if (msg.id == "PET_IMG_UPLOAD" && msg.data.uploaded == true) {
-        this.petImageURL = msg.data.url;
         this.petTotalSliceNumber = msg.data.total_slice_number;
-        console.log(this.petImageURL);
         console.log(this.petTotalSliceNumber);
-        this.imageService.getPetImages(this.petImageURL).subscribe((data) => {
-          if (data.toString() === "PET_RECIVED") {
-            this.petImage = true;
-            console.log("PET_RECIVED");
-          }
-        });
+        this.petImage = true;
+        console.log("PET_RECIVED");
       }
 
       if (msg.id == "PROCESS_STATUS") {
@@ -93,6 +83,17 @@ export class HomeComponent implements OnInit {
       }
 
     });
+
+    this.mriImageSub = this.webSocket.listen("MRI").subscribe((data) => {
+      const msg = this.extractData(data);
+      this.mriImageFiles[msg.slice_no] = msg.data;  
+    });
+
+    this.petImageSub = this.webSocket.listen("PET").subscribe((data) => {
+      const msg = this.extractData(data);
+      this.petImageFiles[msg.slice_no] = msg.data;  
+    });
+
     // this.messages = this.webSocket.getAll("messages");
   }
 
