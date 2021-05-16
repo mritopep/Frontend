@@ -25,6 +25,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 const config: SocketIoConfig = { url: "http://217ad4729ecd.ngrok.io" , options: {} };
 import { HttpClientModule } from '@angular/common/http';
+import { ImgBase64Component } from './components/img-base64/img-base64.component';
+import { ScanviewerComponent } from './components/scanviewer/scanviewer.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { HttpClientModule } from '@angular/common/http';
     AboutComponent,
     DndDirective,
     ProgressComponent,
-    OptionComponent
+    OptionComponent,
+    ImgBase64Component,
+    ScanviewerComponent
   ],
   imports: [
     BrowserModule,

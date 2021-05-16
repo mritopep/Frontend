@@ -27,6 +27,8 @@ export class HomeComponent implements OnInit {
   processStatus: any;
   mriImagePath: string;
   petImagePath: string;
+  mriImageFiles: any;
+  petImageFiles: any;
   sample: string;
 
   constructor(private webSocket: WebsocketService, private cloudStorage: CloudStorageService, private imageService: ImageService) {
