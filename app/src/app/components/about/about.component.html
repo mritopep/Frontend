@@ -1,6 +1,20 @@
 <div class="container-fluid">
     <app-navbar></app-navbar>
-    <footer class="fixed-bottom">
-        <app-footer></app-footer>
-    </footer>
+
+    <section id="Members">
+        <h2 class="text-center section-head">Members</h2>
+        <div id="about-middle">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3 col-sm-12 p-10" *ngFor="let dev of devs">
+                        <div class="row">
+                            <img class="about-img" src="assets/img/dev/{{dev.img}}">
+                            <p class="Member-head">{{dev.name}}</p>
+                            <p class="Member-content">{{dev.position}}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>

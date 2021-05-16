@@ -68,8 +68,8 @@ export class HomeComponent implements OnInit {
       if (msg.id == "PET_ZIP_UPLOAD" && msg.data.uploaded == true) {
         this.cloudStorage.downloadZipFile(msg.data.url).then((windowURL) => {
           if (windowURL) {
-            this.petUploaded = true;
             this.petURL = windowURL;
+            this.petUploaded = true;
           }
         }).catch((err) => {
           console.log(err);

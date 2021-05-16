@@ -1,16 +1,20 @@
-.img-container {
-  height: 68vh;
+.about-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 100px;
 }
 
-footer {
-  height: 11vh;
+/* #Members {
+  width: 100%;
+  height: 100%;
+} */
+
+.Member-head {
+  font-size: 25px;
+  font-weight: 600;
 }
 
-.bg-light {
-  background: #f0f3fc;
-  border-radius: 1rem;
-  overflow-wrap: break-word;
-  height: 68vh;
-  margin: 0 auto;
-  align-items: center;
+.Member-content {
+  font-size: 20px;
+  font-weight: 300;
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ContentService } from 'src/app/services/content.service';
 
 @Component({
   selector: 'app-about',
@@ -6,10 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
-  constructor() {  
+  devs: { name: string; position: string; img: string; }[];
+  constructor(private data: ContentService) {  
   }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.devs = this.data.dev;
   }
 
 }

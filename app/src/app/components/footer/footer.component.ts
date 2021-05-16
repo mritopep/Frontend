@@ -61,15 +61,15 @@ export class FooterComponent implements OnInit {
   }
 
   download() {
-    this.openSnackBar("Wait a Min, Admire the Joy of Life ⚡", "OK")
+    this.openSnackBar("Download Started ⚡", "OK");
     console.log(this.petURL);
     window.open(this.petURL);
     this.deleteFile.emit(true);
     this.createMessage("DELETE_STATUS", { delete: true });
-    this.openSnackBar("Files Deleted 🔥", "OK")
     this.petUploaded = false;
     this.mriUploaded = false;
     this._processStatus = {};
+    this.openSnackBar("Files Deleted 🔥", "OK");
   }
 
   openSnackBar(message: string, action: string) {
