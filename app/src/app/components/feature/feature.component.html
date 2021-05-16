@@ -1,6 +1,16 @@
 <div class="container-fluid">
     <app-navbar></app-navbar>
-    <footer class="fixed-bottom">
-        <app-footer></app-footer>
-    </footer>
+    <section id="Features">
+        <h2 class="text-center section-head">Features</h2>
+        <div id="Feature-middle">
+            <div class="container" *ngFor="let Feature of Features">
+                <div class="row">
+                    <div class="col-8">
+                        <p class="overview-head">{{Feature.name}}</p>
+                        <p class="overview-content">{{Feature.content}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>

@@ -8,3 +8,21 @@ body {
   overflow: hidden;
   height: 100vh;
 }
+
+.section-head {
+  font-weight: 600;
+  padding-top: 20px;
+  padding-bottom: 15px;
+}
+
+.overview-head {
+  font-weight: 600;
+  font-style: bold;
+  font-size: 25px;
+  margin-bottom: 0px;
+}
+
+.overview-content {
+  font-size: 13px;
+  font-weight: 300;
+}

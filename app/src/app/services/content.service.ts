@@ -5,26 +5,16 @@ import { Injectable } from '@angular/core';
 })
 export class ContentService {
 
-  public features: any = [
+  public Features: any = [
     {
-      name: "Feature1",
-      content: "Content1",
-      icon: "la la-sort-amount-asc",
+      name: "1. Fluid & Interactive Design",
+      content: "UI designed keeping user in mind",
+      icon: "design.png",
     },
     {
-      name: "Feature1",
-      content: "Content1",
-      icon: "la la-sort-amount-asc"
-    },
-    {
-      name: "Feature1",
-      content: "Content1",
-      icon: "la la-sort-amount-asc"
-    },
-    {
-      name: "Feature1",
-      content: "Content1",
-      icon: "la la-sort-amount-asc"
+      name: "2. Notification to User During the Process",
+      content: "Keeping User Entertained Throughout Process with Informative Notification",
+      icon: "part.png"
     }
   ]
 
