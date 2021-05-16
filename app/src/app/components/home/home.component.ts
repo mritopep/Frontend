@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
   petImageFiles: any[] = [];
   sample: string;
 
-  constructor(private webSocket: WebsocketService, private cloudStorage: CloudStorageService,) {
+  constructor(private webSocket: WebsocketService, private cloudStorage: CloudStorageService) {
     this.options = new Options();
     this.petUploaded = false;
     this.mriImage = false;
@@ -78,14 +78,14 @@ export class HomeComponent implements OnInit {
 
       if (msg.id == "MRI_IMG_UPLOAD" && msg.data.uploaded == true) {
         console.log("MRI_RECIVED");
-        this.mriTotalSliceNumber = msg.data.total_slice_number;
+        this.mriTotalSliceNumber = msg.data.total_slice_number-1;
         console.log(this.mriTotalSliceNumber);
         this.mriImage = true;
       }
 
       if (msg.id == "PET_IMG_UPLOAD" && msg.data.uploaded == true) {
         console.log("PET_RECIVED");
-        this.petTotalSliceNumber = msg.data.total_slice_number;
+        this.petTotalSliceNumber = msg.data.total_slice_number-1;
         console.log(this.petTotalSliceNumber);
         this.petImage = true;
       }

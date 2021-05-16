@@ -22,8 +22,8 @@ export class ScanviewerComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    this.currentSliceNumber = this.totalSliceNumber / 2;
-    this.currentImage = this.imageFiles[this.currentSliceNumber];
+      this.currentSliceNumber = Math.floor(this.totalSliceNumber / 2);
+      this.currentImage = this.imageFiles[this.currentSliceNumber];
   }
 
   onSliderChange($event) {
