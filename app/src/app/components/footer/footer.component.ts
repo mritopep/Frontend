@@ -28,7 +28,7 @@ export class FooterComponent implements OnInit {
   private _processStatus = {};
   mriUploaded: boolean;
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
-  verticalPosition: MatSnackBarVerticalPosition = 'top';
+  verticalPosition: MatSnackBarVerticalPosition = 'bottom';
   durationInSeconds = 3;
 
   constructor(private webSocket: WebsocketService, private cloudStorage: CloudStorageService, private _snackBar: MatSnackBar) { }
@@ -62,7 +62,7 @@ export class FooterComponent implements OnInit {
   }
 
   download() {
-    this.openSnackBar("Download Started ⚡", "OK")
+    this.openSnackBar("Wait a Min, Admire the Joy of Life ⚡", "OK")
     console.log(this.petURL);
     this.cloudStorage.downloadZipFile(this.petURL).then((fileDownloaded: boolean) => {
       if (fileDownloaded) {
@@ -80,7 +80,6 @@ export class FooterComponent implements OnInit {
   }
 
   openSnackBar(message: string, action: string) {
-    console.log("hello");
     this._snackBar.open(message, action, {
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
