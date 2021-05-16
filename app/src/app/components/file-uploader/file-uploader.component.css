@@ -4,6 +4,7 @@
   stroke-width: "7";
   position: relative;
   margin: 30px auto;
+  margin-bottom: 10px;
   border-radius: 15px;
   height: 100%;
 }
@@ -78,12 +79,17 @@
 }
 
 .fileover > .single-file > .size {
-  font-size: 12px;
+  font-size: 10px;
   font-weight: 500;
   color: #a4a4a4;
   margin: 0;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.7rem;
 }
+.info p{
+  font-size: 14px;
+  margin: 0;
+}
+
 .fileover > .single-file > .info {
   width: 100%;
 }

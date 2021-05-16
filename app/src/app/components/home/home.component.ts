@@ -32,8 +32,8 @@ export class HomeComponent implements OnInit {
   constructor(private webSocket: WebsocketService) {
     this.options = new Options();
     this.petUploaded = false;
-    this.mriImage = true;
-    this.petImage = true;
+    this.mriImage = false;
+    this.petImage = false;
     this.mriTotalSliceNumber = 100;
     this.petTotalSliceNumber = 100;
     this.processStatus = {
