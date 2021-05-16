@@ -85,6 +85,10 @@
   margin: 0;
   margin-bottom: 0.7rem;
 }
+.info{
+  overflow-wrap: break-word;
+  word-break: break-all;
+}
 .info p{
   font-size: 14px;
   margin: 0;

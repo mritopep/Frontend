@@ -26,17 +26,17 @@ export class ContentService {
       img: "dev0.png"
     },
     {
-      name: "George Prince",
+      name: "George Prince Manjooran",
       position: "Developer",
       img: "dev1.png"
     },
     {
-      name: "Ashia",
+      name: "Ashia Joseph",
       position: "Developer",
       img: "dev2.png"
     },
     {
-      name: "Harishma",
+      name: "Harishma M Babu",
       position: "Developer",
       img: "dev3.png"
     }
