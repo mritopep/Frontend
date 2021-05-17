@@ -53,7 +53,6 @@ export class FileUploaderComponent implements OnInit {
 
 
   prepareFilesList(files: any) {
-    console.log(files);
     if (this.supportFile(files[0])) {
       this.file = files[0];
       this.file.progress = 0;

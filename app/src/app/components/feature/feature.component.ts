@@ -13,7 +13,6 @@ export class FeatureComponent implements OnInit {
 
   constructor(private data: ContentService) { 
     this.Features = this.data.Features;
-    console.log(this.Features);
     this.Feature = this.Features[0];
   }
 

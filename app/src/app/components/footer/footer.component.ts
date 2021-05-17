@@ -17,7 +17,16 @@ export class FooterComponent implements OnInit {
   @Input() file: any;
   @Output() deleteFile = new EventEmitter<any>();
   @Input() petURL: any;
-  @Input() petUploaded: any;
+
+  @Input()
+  get petUploaded(): any {
+    return this._petUploaded;
+  }
+  set petUploaded(petUploaded: any) {
+    this._petUploaded = petUploaded;
+  };
+  private _petUploaded;
+
   @Input()
   get processStatus(): any {
     return this._processStatus;
@@ -26,6 +35,7 @@ export class FooterComponent implements OnInit {
     this._processStatus = processStatus;
   };
   private _processStatus = {};
+
   mriUploaded: boolean;
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
@@ -51,9 +61,6 @@ export class FooterComponent implements OnInit {
     } else {
       this.openSnackBar("Upload a File First 😅", "OK")
     }
-    // console.log("Mri zip upload");
-    // this.createMessage("MRI_ZIP_UPLOAD", { uploaded: true });
-    // this.mriUploaded = true;
   }
 
   createMessage(id, data) {
@@ -69,7 +76,7 @@ export class FooterComponent implements OnInit {
     window.open(this.petURL);
     this.deleteFile.emit(true);
     this.createMessage("DELETE_STATUS", { delete: true });
-    this.petUploaded = false;
+    this._petUploaded = false;
     this.mriUploaded = false;
     this._processStatus = {};
     this.openSnackBar("Files Deleted 🔥", "OK");

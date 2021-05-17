@@ -28,7 +28,6 @@ export class HomeComponent implements OnInit {
   processStatus: any;
   mriImageFiles: any[] = [];
   petImageFiles: any[] = [];
-  sample: string;
 
   constructor(private webSocket: WebsocketService, private cloudStorage: CloudStorageService) {
     this.options = new Options();
@@ -68,8 +67,10 @@ export class HomeComponent implements OnInit {
       if (msg.id == "PET_ZIP_UPLOAD" && msg.data.uploaded == true) {
         this.cloudStorage.downloadZipFile(msg.data.url).then((windowURL) => {
           if (windowURL) {
+            console.log(windowURL);
             this.petURL = windowURL;
             this.petUploaded = true;
+            console.log(this.petUploaded);
           }
         }).catch((err) => {
           console.log(err);
@@ -78,15 +79,13 @@ export class HomeComponent implements OnInit {
 
       if (msg.id == "MRI_IMG_UPLOAD" && msg.data.uploaded == true) {
         console.log("MRI_RECIVED");
-        this.mriTotalSliceNumber = msg.data.total_slice_number-1;
-        console.log(this.mriTotalSliceNumber);
+        this.mriTotalSliceNumber = msg.data.total_slice_number - 1;
         this.mriImage = true;
       }
 
       if (msg.id == "PET_IMG_UPLOAD" && msg.data.uploaded == true) {
         console.log("PET_RECIVED");
-        this.petTotalSliceNumber = msg.data.total_slice_number-1;
-        console.log(this.petTotalSliceNumber);
+        this.petTotalSliceNumber = msg.data.total_slice_number - 1;
         this.petImage = true;
       }
 
@@ -123,12 +122,27 @@ export class HomeComponent implements OnInit {
     this.webSocket.emit("Messages", msg);
   }
 
-  deleteFiles($event){
-    if($event){
+  deleteFiles($event) {
+    if ($event) {
       this.mriImageFiles = [];
       this.petImageFiles = [];
+      this.file = undefined;
+      this.petUploaded = false;
       this.mriImage = false;
       this.petImage = false;
+      this.processStatus = {
+        denoise: false,
+        skull_strip: false,
+        bais_correction: false,
+        upload_start: false,
+        upload_end: false,
+        preprocess_start: false,
+        preprocess_end: false,
+        generate_start: false,
+        generate_end: false,
+        saving_start: false,
+        saving_end: false
+      };
     }
   }
 
