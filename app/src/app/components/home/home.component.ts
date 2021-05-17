@@ -108,7 +108,7 @@ export class HomeComponent implements OnInit {
   }
 
   onFileUploaded($event: any) {
-    this.file = $event[0];
+    this.file = $event;
   }
 
   onSelection($event) {

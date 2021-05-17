@@ -1,5 +1,9 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { CloudStorageService } from 'src/app/services/cloudstorage.service';
+import {
+  MatSnackBar,
+  MatSnackBarHorizontalPosition,
+  MatSnackBarVerticalPosition,
+} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-file-uploader',
@@ -8,83 +12,87 @@ import { CloudStorageService } from 'src/app/services/cloudstorage.service';
 })
 export class FileUploaderComponent implements OnInit {
   @Output() filesUploaded = new EventEmitter<any>();
+  file: any;
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+  durationInSeconds = 3;
 
-  constructor(private cloudStorage: CloudStorageService) { }
+  constructor(private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
+    this.file = undefined;
   }
 
-  files: any[] = [];
-
-  /**
-   * on file drop handler
-   */
   onFileDropped($event: any) {
     this.prepareFilesList($event);
   }
 
-  /**
-   * handle file from browsing
-   */
+
   fileBrowseHandler(files: any) {
-      this.prepareFilesList(files);
+    this.prepareFilesList(files);
   }
 
-  /**
-   * Delete file from files list
-   * @param index (File index)
-   */
-  deleteFile(index: number) {
-    this.files.splice(index, 1);
+
+  deleteFile() {
+    this.file = undefined;
+    this.filesUploaded.emit(this.file);
   }
 
-  /**
-   * Simulate the upload process
-   */
-  uploadFilesSimulator(index: number) {
+
+  uploadFilesSimulator() {
     setTimeout(() => {
-      if (index === this.files.length) {
-        return;
-      } else {
-        const progressInterval = setInterval(() => {
-          if (this.files[index].progress === 100) {
-            clearInterval(progressInterval);
-            this.uploadFilesSimulator(index + 1);
-          } else {
-            this.files[index].progress += 5;
-          }
-        }, 200);
-      }
+      const progressInterval = setInterval(() => {
+        if (this.file.progress === 100) {
+          clearInterval(progressInterval);
+        } else {
+          this.file.progress += 5;
+        }
+      }, 200);
     }, 1000);
   }
 
-  /**
-   * Convert Files list to normal array list
-   * @param files (Files List)
-   */
-  prepareFilesList(files: Array<any>) {
-    for (const item of files) {
-      item.progress = 0;
-      this.files.push(item);
-      this.filesUploaded.emit(this.files);
+
+  prepareFilesList(files: any) {
+    console.log(files);
+    if (this.supportFile(files[0])) {
+      this.file = files[0];
+      this.file.progress = 0;
+      this.uploadFilesSimulator();
+      this.filesUploaded.emit(this.file);
+
+    } else {
+      this.openSnackBar("Please Upload nii file 😁", "OK");
     }
-    this.uploadFilesSimulator(0);
   }
 
-  /**
-   * format bytes
-   * @param bytes (File size in bytes)
-   * @param decimals (Decimals point)
-   */
-  formatBytes(bytes, decimals) {
+  formatBytes(bytes: any) {
     if (bytes === 0) {
       return '0 Bytes';
     }
     const k = 1024;
-    const dm = decimals <= 0 ? 0 : decimals || 2;
     const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
     const i = Math.floor(Math.log(bytes) / Math.log(k));
-    return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+    return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
   }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+      duration: this.durationInSeconds * 1000,
+    });
+  }
+
+  supportFile(file: any) {
+    if (file != undefined) {
+      const name = file.name.split(".");
+      const ext = name[name.length - 1];
+      if (ext == 'nii') {
+        return true;
+      }
+    }
+    return false;
+  }
+
 
 }
