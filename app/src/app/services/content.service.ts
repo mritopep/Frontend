@@ -28,7 +28,7 @@ export class ContentService {
     {
       name: "George Prince Manjooran",
       position: "Developer",
-      img: "dev1.png"
+      img: "dev1.jpg"
     },
     {
       name: "Ashia Joseph",
