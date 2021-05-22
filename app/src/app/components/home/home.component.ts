@@ -107,6 +107,7 @@ export class HomeComponent implements OnInit {
   }
 
   onFileUploaded($event: any) {
+    this.createMessage("START", {start_server: true});
     this.file = $event;
   }
 
