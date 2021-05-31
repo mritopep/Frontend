@@ -47,7 +47,7 @@ export class FileUploaderComponent implements OnInit {
         } else {
           this.file.progress += 5;
         }
-      }, 300);
+      }, 100);
     }, 1000);
   }
 
