@@ -48,10 +48,11 @@ export class FooterComponent implements OnInit {
 
   next() {
     if (this.file) {
-      this.openSnackBar("Process Started 👍", "OK")
+      this.openSnackBar("Process Started 👍", "OK");
       this.cloudStorage.uploadFile("mri.zip", this.file).then((fileUploaded: boolean) => {
         if (fileUploaded) {
           console.log("Mri zip upload");
+          this.openSnackBar("Zip Uploaded 👍", "OK");
           this.createMessage("MRI_ZIP_UPLOAD", { uploaded: true });
           this.mriUploaded = true;
         }
@@ -59,7 +60,7 @@ export class FooterComponent implements OnInit {
         console.log(err);
       });
     } else {
-      this.openSnackBar("Upload a File First 😅", "OK")
+      this.openSnackBar("Upload a File First 😅", "OK");
     }
   }
 

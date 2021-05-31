@@ -1,6 +1,6 @@
 .filedrop {
   text-align: center;
-  border: 3px dashed #60d490;
+  border: 3px dashed #4C5268;
   stroke-width: "7";
   position: relative;
   margin: 30px auto;
@@ -69,6 +69,7 @@
   margin-left: 0.5rem;
   cursor: pointer;
   align-self: flex-end;
+  color: #4C5268;
 }
 
 .fileover > .single-file > .name {

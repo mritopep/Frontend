@@ -47,7 +47,7 @@ export class FileUploaderComponent implements OnInit {
         } else {
           this.file.progress += 5;
         }
-      }, 200);
+      }, 100);
     }, 1000);
   }
 
@@ -58,7 +58,7 @@ export class FileUploaderComponent implements OnInit {
       this.file.progress = 0;
       this.uploadFilesSimulator();
       this.filesUploaded.emit(this.file);
-
+      console.log(this.file);
     } else {
       this.openSnackBar("Please Upload nii file 😁", "OK");
     }
