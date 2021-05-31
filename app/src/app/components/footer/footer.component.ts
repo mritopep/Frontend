@@ -33,6 +33,15 @@ export class FooterComponent implements OnInit {
   }
   set processStatus(processStatus: any) {
     this._processStatus = processStatus;
+    if(processStatus.denoise){
+      this.openSnackBar("Denoising Completed 👍", "OK",30)
+    }
+    if(processStatus.skull_strip){
+      this.openSnackBar("Skull Stripping Completed 👍", "OK",30)
+    }
+    if(processStatus.bais_correction){
+      this.openSnackBar("Bais Correction Completed 👍", "OK",30)
+    }
   };
   private _processStatus = {};
 
@@ -83,11 +92,15 @@ export class FooterComponent implements OnInit {
     this.openSnackBar("Files Deleted 🔥", "OK");
   }
 
-  openSnackBar(message: string, action: string) {
+  openSnackBar(message: string, action: string, duration?: number) {
+    let currentDuration = this.durationInSeconds;
+    if(duration){
+      currentDuration = duration;
+    }
     this._snackBar.open(message, action, {
       horizontalPosition: this.horizontalPosition,
       verticalPosition: this.verticalPosition,
-      duration: this.durationInSeconds * 1000,
+      duration: currentDuration * 1000,
     });
   }
 }
