@@ -38,7 +38,7 @@ export class ContentService {
     {
       name: "Harishma M Babu",
       position: "Developer",
-      img: "dev3.png"
+      img: "dev3.jpg"
     }
   ]
 
