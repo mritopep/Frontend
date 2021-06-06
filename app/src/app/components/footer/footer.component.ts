@@ -17,6 +17,9 @@ export class FooterComponent implements OnInit {
   @Input() file: any;
   @Output() deleteFile = new EventEmitter<any>();
   @Input() petURL: any;
+  denoise_msg_shown: boolean;
+  skull_strip_msg_shown: boolean;
+  bais_correction_msg_shown: boolean;
 
   @Input()
   get petUploaded(): any {
@@ -33,14 +36,17 @@ export class FooterComponent implements OnInit {
   }
   set processStatus(processStatus: any) {
     this._processStatus = processStatus;
-    if(processStatus.denoise){
-      this.openSnackBar("Denoising Completed 👍", "OK",30)
+    if(processStatus.denoise && !this.denoise_msg_shown){
+      this.openSnackBar("Denoising Completed 👍", "OK",30);
+      this.denoise_msg_shown = true;
     }
-    if(processStatus.skull_strip){
-      this.openSnackBar("Skull Stripping Completed 👍", "OK",30)
+    if(processStatus.skull_strip && !this.skull_strip_msg_shown){
+      this.openSnackBar("Skull Stripping Completed 👍", "OK",30);
+      this.skull_strip_msg_shown = true;
     }
-    if(processStatus.bais_correction){
+    if(processStatus.bais_correction && !this.bais_correction_msg_shown){
       this.openSnackBar("Bais Correction Completed 👍", "OK",30)
+      this.bais_correction_msg_shown = true;
     }
   };
   private _processStatus = {};
@@ -50,7 +56,11 @@ export class FooterComponent implements OnInit {
   verticalPosition: MatSnackBarVerticalPosition = 'top';
   durationInSeconds = 3;
 
-  constructor(private webSocket: WebsocketService, private _snackBar: MatSnackBar, private cloudStorage: CloudStorageService) { }
+  constructor(private webSocket: WebsocketService, private _snackBar: MatSnackBar, private cloudStorage: CloudStorageService) { 
+    this.denoise_msg_shown = false;
+    this.skull_strip_msg_shown = false;
+    this.bais_correction_msg_shown = false;
+  }
 
   ngOnInit(): void {
   }
