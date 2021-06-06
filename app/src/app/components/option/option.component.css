@@ -1,22 +1,19 @@
-table{
-    margin: 0 auto;
-    width: fit-content;
-    block-size: fit-content;
-    
+table {
+  margin: 0 auto;
+  width: fit-content;
+  block-size: fit-content;
 }
 td {
-    text-align: left ;
-    font-size: 19px;
-    color:#4C5268;
-
+  text-align: left;
+  font-size: 19px;
+  color: #4c5268;
 }
 
 mat-slide-toggle {
-    color: #60D490;
-
+  color: #60d490;
 }
 
-p{
-    color: #4C5268;
-    font-weight: 700  ;
-  }
+p {
+  color: #4c5268;
+  font-weight: 700;
+}
