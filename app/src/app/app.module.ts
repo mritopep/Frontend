@@ -25,7 +25,6 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 const config: SocketIoConfig = { url: "http://9a09bca13cbb.ngrok.io" , options: {} };
 import { HttpClientModule } from '@angular/common/http';
 
-
 @NgModule({
   declarations: [
     AppComponent,

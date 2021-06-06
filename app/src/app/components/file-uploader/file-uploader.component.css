@@ -9,10 +9,6 @@
   height: 100%;
 }
 
-.filedrop > * {
-  padding: 10px;
-}
-
 .filedrop .blue_txt {
   color: #4c5268;
   font-weight: 770;
