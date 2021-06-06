@@ -22,11 +22,7 @@ import {MatSliderModule} from '@angular/material/slider';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 
-<<<<<<< HEAD
-const config: SocketIoConfig = { url: "http://09899ea5143c.ngrok.io" , options: {} };
-=======
 const config: SocketIoConfig = { url: "http://896eb4323802.ngrok.io" , options: {} };
->>>>>>> 8051ee1555cdd1365cde19661ac6192af06d520e
 import { HttpClientModule } from '@angular/common/http';
 
 
