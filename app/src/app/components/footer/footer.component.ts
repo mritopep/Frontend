@@ -99,6 +99,9 @@ export class FooterComponent implements OnInit {
     this._petUploaded = false;
     this.mriUploaded = false;
     this._processStatus = {};
+    this.denoise_msg_shown = false;
+    this.skull_strip_msg_shown = false;
+    this.bais_correction_msg_shown = false;
     this.openSnackBar("Files Deleted 🔥", "OK");
   }
 
