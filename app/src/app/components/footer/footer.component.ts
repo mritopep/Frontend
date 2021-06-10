@@ -19,7 +19,7 @@ export class FooterComponent implements OnInit {
   @Input() petURL: any;
   denoise_msg_shown: boolean;
   skull_strip_msg_shown: boolean;
-  bais_correction_msg_shown: boolean;
+  bias_correction_msg_shown: boolean;
 
   @Input()
   get petUploaded(): any {
@@ -36,17 +36,20 @@ export class FooterComponent implements OnInit {
   }
   set processStatus(processStatus: any) {
     this._processStatus = processStatus;
-    if(processStatus.denoise && !this.denoise_msg_shown){
-      this.openSnackBar("Denoising Completed 👍", "OK",30);
+    if (processStatus.denoise && !this.denoise_msg_shown) {
+      this.dismiss();
+      this.openSnackBar("Denoising Completed 👍", "OK", 30);
       this.denoise_msg_shown = true;
     }
-    if(processStatus.skull_strip && !this.skull_strip_msg_shown){
-      this.openSnackBar("Skull Stripping Completed 👍", "OK",30);
+    if (processStatus.skull_strip && !this.skull_strip_msg_shown) {
+      this.dismiss();
+      this.openSnackBar("Skull Stripping Completed 👍", "OK", 30);
       this.skull_strip_msg_shown = true;
     }
-    if(processStatus.bais_correction && !this.bais_correction_msg_shown){
-      this.openSnackBar("Bais Correction Completed 👍", "OK",30)
-      this.bais_correction_msg_shown = true;
+    if (processStatus.bias_correction && !this.bias_correction_msg_shown) {
+      this.dismiss();
+      this.openSnackBar("Bais Correction Completed 👍", "OK", 30)
+      this.bias_correction_msg_shown = true;
     }
   };
   private _processStatus = {};
@@ -56,10 +59,10 @@ export class FooterComponent implements OnInit {
   verticalPosition: MatSnackBarVerticalPosition = 'top';
   durationInSeconds = 3;
 
-  constructor(private webSocket: WebsocketService, private _snackBar: MatSnackBar, private cloudStorage: CloudStorageService) { 
+  constructor(private webSocket: WebsocketService, private _snackBar: MatSnackBar, private cloudStorage: CloudStorageService) {
     this.denoise_msg_shown = false;
     this.skull_strip_msg_shown = false;
-    this.bais_correction_msg_shown = false;
+    this.bias_correction_msg_shown = false;
   }
 
   ngOnInit(): void {
@@ -101,13 +104,13 @@ export class FooterComponent implements OnInit {
     this._processStatus = {};
     this.denoise_msg_shown = false;
     this.skull_strip_msg_shown = false;
-    this.bais_correction_msg_shown = false;
+    this.bias_correction_msg_shown = false;
     this.openSnackBar("Files Deleted 🔥", "OK");
   }
 
   openSnackBar(message: string, action: string, duration?: number) {
     let currentDuration = this.durationInSeconds;
-    if(duration){
+    if (duration) {
       currentDuration = duration;
     }
     this._snackBar.open(message, action, {
@@ -115,5 +118,9 @@ export class FooterComponent implements OnInit {
       verticalPosition: this.verticalPosition,
       duration: currentDuration * 1000,
     });
+  }
+
+  public dismiss(){
+    this._snackBar.dismiss();
   }
 }
