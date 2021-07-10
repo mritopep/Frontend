@@ -14,6 +14,8 @@ import { DndDirective } from './directives/dnd.directive';
 import { ProgressComponent } from './components/progress/progress.component';
 import { ImgBase64Component } from './components/img-base64/img-base64.component';
 import { ScanviewerComponent } from './components/scanviewer/scanviewer.component';
+import { InfoComponent } from './components/info/info.component';
+import { IndicatorComponent } from './components/indicator/indicator.component';
 
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { OptionComponent } from './components/option/option.component';
@@ -24,6 +26,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 const config: SocketIoConfig = { url: "http://b87496fc10f4.ngrok.io" , options: {} };
 import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -38,7 +41,9 @@ import { HttpClientModule } from '@angular/common/http';
     ProgressComponent,
     OptionComponent,
     ImgBase64Component,
-    ScanviewerComponent
+    ScanviewerComponent,
+    InfoComponent,
+    IndicatorComponent
   ],
   imports: [
     BrowserModule,

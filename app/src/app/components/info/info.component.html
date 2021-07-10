@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="row">
+        <p>RISK OF ALZHEIMER'S DISEASE</p>
+    </div>
+    <div class="row">
+        <app-indicator [percentage]='prediction_percentage' ></app-indicator>
+    </div>
+    <div class="row">
+        <div class="col">
+            <p>PREDICTION ACCURACY</p>
+        </div>
+        <div class="col">
+            <p>{{confidence_percentage}}%</p>
+        </div>
+    </div>
+</div>
