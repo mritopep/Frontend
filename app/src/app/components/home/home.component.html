@@ -19,8 +19,8 @@
             </div>
             <app-scanviewer *ngIf="petImage" [name]="'PET'" [imageFiles]="petImageFiles" [totalSliceNumber]="petTotalSliceNumber" ></app-scanviewer>
         </div>
-        <div class="col-3 d-flex align-items-center ">
-            <app-info></app-info>
+        <div class="col-3 d-flex align-items-center" *ngIf="prediction">
+            <app-info [predictionPercentage]='predictionPercentage' [confidencePercentage]='confidencePercentage'></app-info>
         </div>
     </div>
     <footer class="fixed-bottom">

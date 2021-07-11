@@ -6,8 +6,8 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./info.component.css']
 })
 export class InfoComponent implements OnInit {
-  @Input() prediction_percentage;
-  @Input() confidence_percentage;
+  @Input() predictionPercentage;
+  @Input() confidencePercentage;
 
   constructor() { }
 
