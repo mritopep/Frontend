@@ -13,13 +13,13 @@
             </div>
             <app-scanviewer *ngIf="mriImage" [name]="'MRI'" [imageFiles]="mriImageFiles" [totalSliceNumber]="mriTotalSliceNumber" ></app-scanviewer>
         </div>
-        <div class="col-4">
+        <div class="col-5">
             <div class="img-container" *ngIf="!petImage">
                 <img src="../../../assets/img/background-img.svg" alt="bg-img" class="img-fluid bgimg">
             </div>
             <app-scanviewer *ngIf="petImage" [name]="'PET'" [imageFiles]="petImageFiles" [totalSliceNumber]="petTotalSliceNumber" ></app-scanviewer>
         </div>
-        <div class="col-4">
+        <div class="col-3 d-flex align-items-center ">
             <app-info></app-info>
         </div>
     </div>

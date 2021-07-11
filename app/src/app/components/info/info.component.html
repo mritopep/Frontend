@@ -1,16 +1,22 @@
-<div class="container">
-    <div class="row">
-        <p>RISK OF ALZHEIMER'S DISEASE</p>
+<div class="container  ">
+    <div class="row mx-2">
+        <div class="col px-3 py-2 d-flex flex-column align-items-end ">
+            <p class="h4">RISK OF </p>
+            <p class="h4">ALZHEIMER'S </p>
+            <p class="h4">DISEASE</p>
+        </div>
     </div>
-    <div class="row">
+    <div class="row p-0">
         <app-indicator [percentage]='prediction_percentage' ></app-indicator>
     </div>
-    <div class="row">
+    <div class="row my-2 mx-1 pred">
         <div class="col">
-            <p>PREDICTION ACCURACY</p>
+            <p class="h4">PREDICTION ACCURACY</p>
         </div>
-        <div class="col">
-            <p>{{confidence_percentage}}%</p>
+        <div class="col ">
+            <p class="h4 mt-3">{{confidence_percentage}}%</p>
         </div>
     </div>
 </div>
+
+

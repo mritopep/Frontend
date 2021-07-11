@@ -1,0 +1,20 @@
+.ind_bg{
+color: white;
+border-radius: 10px;
+text-align: center;
+
+
+}
+.low{
+background-color: #60D490;
+}
+
+.med{
+background-color: #F78248 ;
+
+}
+
+.high{
+background-color:#F25559 ;
+
+}
