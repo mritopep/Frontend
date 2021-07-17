@@ -36,9 +36,9 @@ export class HomeComponent implements OnInit {
     this.options = new Options();
     this.petUploaded = false;
 
-    this.mriImage = true;
-    this.petImage = true;
-    
+    this.mriImage = false;
+    this.petImage = false;
+
     this.processStatus = {
       denoise: false,
       skull_strip: false,
@@ -53,8 +53,8 @@ export class HomeComponent implements OnInit {
       saving_end: false
     };
     this.prediction = true;
-    this.class = "MCI";
-    this.confidence = 90;
+    this.class = "";
+    this.confidence = 0;
   }
 
   ngOnInit(): void {
