@@ -6,30 +6,31 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./indicator.component.css']
 })
 export class IndicatorComponent implements OnInit {
+
   textIndicator: string;
   indicatorColor: string;
+  @Input() confidence;
+  colorMap: Map<any, any>;
   @Input()
-  get percentage(): any {
-    return this._percentage;
+  get label(): any {
+    return this._label;
   }
-  set percentage(percentage: any) {
-    this._percentage = Math.ceil(percentage);
-    if(this._percentage >= 66){
-      this.textIndicator = "HIGH";
-      this.indicatorColor = "#f25559";
-    } else if(this._percentage >= 34){
-      this.textIndicator = "MED";
-      this.indicatorColor = "#f78248";
-    } else {
-      this.textIndicator = "LOW";
-      this.indicatorColor = "#60d490";
-    }
+  set label(label: any) {
+    this._label = label;
+    this.textIndicator = label;
+    this.indicatorColor = this.colorMap.get(label);
   };
-  private _percentage;
+  private _label;
 
-  
-
-  constructor() { }
+  constructor() {
+    this.colorMap = new Map();
+    this.colorMap.set('CN', '#60D490');
+    this.colorMap.set('EMCI', '#D4C860');
+    this.colorMap.set('MCI', '#F78248');
+    this.colorMap.set('LMCI', '#ED601A');
+    this.colorMap.set('SMC', '#F25559');
+    this.colorMap.set('AD', '#EF292E');
+  }
 
   ngOnInit(): void {
   }

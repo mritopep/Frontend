@@ -28,15 +28,17 @@ export class HomeComponent implements OnInit {
   processStatus: any;
   mriImageFiles: any[] = [];
   petImageFiles: any[] = [];
-  predictionPercentage: any;
-  confidencePercentage: any;
+  class: any;
+  confidence: any;
   prediction: boolean;
 
   constructor(private webSocket: WebsocketService, private cloudStorage: CloudStorageService) {
     this.options = new Options();
     this.petUploaded = false;
-    this.mriImage = false;
-    this.petImage = false;
+
+    this.mriImage = true;
+    this.petImage = true;
+    
     this.processStatus = {
       denoise: false,
       skull_strip: false,
@@ -51,8 +53,8 @@ export class HomeComponent implements OnInit {
       saving_end: false
     };
     this.prediction = true;
-    this.predictionPercentage = 10;
-    this.confidencePercentage = 40;
+    this.class = "MCI";
+    this.confidence = 90;
   }
 
   ngOnInit(): void {
@@ -102,8 +104,8 @@ export class HomeComponent implements OnInit {
       if (msg.id == "PREDICTION") {
         console.log("PREDICTION_RECIVED");
         this.prediction = true;
-        this.predictionPercentage = msg.data.prediction_percentage;
-        this.confidencePercentage = msg.data.confidence_percentage;
+        this.class = msg.data.class;
+        this.confidence = msg.data.confidence;
       }
 
     });

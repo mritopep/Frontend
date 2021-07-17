@@ -1,20 +1,18 @@
 <div class="container  ">
     <div class="row mx-2">
         <div class="col px-3 py-2 d-flex flex-column align-items-end">
-            <p class="h4">RISK OF </p>
-            <p class="h4">ALZHEIMER'S </p>
-            <p class="h4">DISEASE</p>
+            <p class="h4">CONDITION</p>
         </div>
     </div>
     <div class="row p-0">
-        <app-indicator [percentage]='predictionPercentage' ></app-indicator>
+        <app-indicator [label]='label' [confidence]='confidence' ></app-indicator>
     </div>
     <div class="row my-2 mx-1 pred">
         <div class="col">
-            <p class="h4">PREDICTION ACCURACY</p>
+            <p class="h4">{{conditionMap.get(label)}}</p>
         </div>
         <div class="col ">
-            <p class="h4 my-2">{{confidencePercentage}}%</p>
+            <p class="h4 my-2">{{descMap.get(label)}}</p>
         </div>
     </div>
 </div>
