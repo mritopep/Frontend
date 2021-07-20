@@ -52,7 +52,8 @@ export class HomeComponent implements OnInit {
       saving_start: false,
       saving_end: false
     };
-    this.prediction = true;
+    
+    this.prediction = false;
     this.class = "";
     this.confidence = 0;
   }
