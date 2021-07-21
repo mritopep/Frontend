@@ -55,7 +55,7 @@ export class HomeComponent implements OnInit {
     
     this.prediction = false;
     this.class = "";
-    this.confidence = 0;
+    this.confidence = 1;
   }
 
   ngOnInit(): void {

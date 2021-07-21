@@ -12,7 +12,7 @@
 .filedrop .blue_txt {
   color: #4c5268;
   font-weight: 770;
-  margin: 30px 0px 10px 0px;
+  margin: 12px 0px 10px 0px;
 }
 .filedrop > h3 {
   font-size: 20px;
@@ -38,7 +38,7 @@
 .filedrop .lead {
   color: black;
   font-size: small;
-  margin: 10px 0px 30px 0px;
+  margin: 10px 0px 15px 0px;
 }
 
 .fileover {
